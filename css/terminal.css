@@ -7,6 +7,9 @@
 	--start-section: #3a96dd;
 	--end-section: #3a96dd;
 	--indent: #16c60c;
+
+	--indent-level: 1;
+	--indent-amount: 2em;
 }
 
 * {
@@ -16,18 +19,20 @@
 }
 
 .terminal {
+	position: relative;
 	background: black;
 	width: 100%;
 	height: 100vh;
 	font-family: 'Roboto Mono', monospace;
 	padding: 10px;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .line {
 	margin: 5px 10px;
 	color: var(--solo);
-	text-shadow: 2px 1px 10px var(--solo);
+	text-shadow: 1px 1px 10px var(--solo);
+	text-transform: none;
 }
 
 .terminal > .line::before {
@@ -35,25 +40,71 @@
 	color: var(--solo-prefix-clr);
 }
 
-.line .line {
-	margin-left: 2em;
-	color: var(--indent);
-	text-shadow: 2px 1px 10px var(--indent);
+.line[data-level='0'] {
+	--indent-level: 0;
 }
 
-.line .line::before {
+.line[data-level='1'] {
+	--indent-level: 1;
+}
+
+.line[data-level='2'] {
+	--indent-level: 2;
+}
+
+.line[data-level='3'] {
+	--indent-level: 3;
+}
+
+.line[data-level='4'] {
+	--indent-level: 4;
+}
+
+.line[data-level='5'] {
+	--indent-level: 5;
+}
+
+.line[data-level='6'] {
+	--indent-level: 6;
+}
+
+.line[data-level='7'] {
+	--indent-level: 7;
+}
+
+.line[data-level='8'] {
+	--indent-level: 8;
+}
+
+.line[data-level='9'] {
+	--indent-level: 9;
+}
+
+.line[data-level='10'] {
+	--indent-level: 10;
+}
+
+.line[data-type='indent'] {
+	color: var(--indent);
+	text-shadow: 1px 1px 10px var(--indent);
+	margin-left: calc(var(--indent-level) * var(--indent-amount));
+}
+
+.line[data-type='indent']::before {
 	content: var(--indent-prefix);
 	color: var(--indent-prefix-clr);
 }
 
-.start_section {
+.start {
 	margin-top: 15px;
 	color: var(--start-section);
-	text-shadow: 2px 1px 10px var(--start-section);
+	text-shadow: 1px 1px 10px var(--start-section);
+	text-transform: uppercase;
 }
 
-.end_section {
+.end {
 	margin-bottom: 15px;
 	color: var(--end-section);
-	text-shadow: 2px 1px 10px var(--end-section);
+	text-shadow: 1px 1px 10px var(--end-section);
+	text-transform: uppercase;
 }

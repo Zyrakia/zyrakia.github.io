@@ -1,0 +1,31 @@
+SOLO||Establishing connection... done
+START||Starting drivers
+INDENT||BIOS.. DONE
+INDENT||MB.. DONE
+INDENT||CPU.. DONE
+INDENT||GPU.. DONE
+END||Drivers started
+SOLO||Starting OS... DONE
+START||Opening drive
+INDENT||Preparing caches
+INDENT2||Finding caches
+INDENT3||Found 7
+INDENT3||Queued 3 (OVERFLOW)
+INDENT3||Skipping 4 (EMPTY)
+INDENT2||Scanning overflow caches
+INDENT3||1.. 49 KB (SAFE)
+INDENT3||2.. 130 KB (PARTIAL)
+INDENT3||3.. 14 KB (SAFE)
+INDENT2||Deleting overflow caches
+INDENT3||1.. DONE
+INDENT3||2.. DONE (REMAIN 12 KB)
+INDENT3||3.. DONE
+INDENT||Finding desktop items
+INDENT2||FOUND: Chrome
+INDENT2||FOUND: Minecraft
+INDENT2||FOUND: YouTube
+INDENT2||FOUND: Steam
+INDENT2||FOUND: Twitter
+END||Closing drive
+SOLO||Killing connection... done
+SOLO||Goodbye world.
