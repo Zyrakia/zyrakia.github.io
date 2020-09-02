@@ -95,6 +95,10 @@
 	color: var(--indent-prefix-clr);
 }
 
+.line[data-type='raw']::before {
+	display: none;
+}
+
 .start {
 	margin-top: 15px;
 	color: var(--start-section);
@@ -107,4 +111,23 @@
 	color: var(--end-section);
 	text-shadow: 1px 1px 10px var(--end-section);
 	text-transform: uppercase;
+}
+
+.caret::after {
+	content: '|';
+}
+
+.blink::after {
+	content: '|';
+	animation: blink 500ms infinite alternate-reverse;
+}
+
+@keyframes blink {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
 }
