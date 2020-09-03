@@ -1,0 +1,2 @@
+#Only include JS files inside page
+*.ts
