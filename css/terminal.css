@@ -125,6 +125,42 @@
 	animation: blink 500ms infinite alternate-reverse;
 }
 
+.command_input {
+	margin: 5px 0;
+	color: var(--solo);
+	min-width: 50px;
+	max-width: 400px;
+	white-space: nowrap;
+	text-shadow: 1px 1px 10px var(--solo);
+	padding: 5px 0;
+	border: none;
+	outline: none;
+	background: transparent;
+	animation: fadeIn 500ms;
+}
+
+.command_input::placeholder {
+	color: var(--solo);
+	opacity: 0.4;
+}
+
+.command_input::before {
+	content: '> ';
+	color: var(--solo-prefix-clr);
+}
+
+@keyframes fadeIn {
+	0% {
+		transform: translateX(-200px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}
+
 @keyframes blink {
 	0% {
 		opacity: 1;
