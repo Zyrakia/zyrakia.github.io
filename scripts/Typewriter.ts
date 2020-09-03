@@ -1,18 +1,24 @@
 interface TypewriterSettings {
+	instant?: boolean;
 	speed?: number;
 	random?: boolean;
 	delayAfter?: number;
 	blinkAfter?: boolean;
 	removeBlinkAfterDelay?: boolean;
+	delayBefore?: number;
+	blinkBefore?: boolean;
 }
 
 class Typewriter {
 	public static readonly DEFAULT_SETTINGS: TypewriterSettings = {
+		instant: false,
 		speed: 100,
 		random: true,
 		delayAfter: 500,
 		blinkAfter: false,
 		removeBlinkAfterDelay: false,
+		delayBefore: undefined,
+		blinkBefore: false,
 	};
 
 	private elementToPopulate: HTMLElement;
@@ -29,7 +35,26 @@ class Typewriter {
 		if (!settings) settings = Typewriter.DEFAULT_SETTINGS;
 
 		return new Promise((resolve) => {
-			const type = () => {
+			const finishType = () => {
+				this.elementToPopulate.innerText = this.content;
+
+				setTimeout(() => {
+					this.elementToPopulate.classList.remove('caret');
+					if (settings.blinkAfter) this.elementToPopulate.classList.add('blinkcaret');
+				}, 50);
+
+				if (!settings.delayAfter) resolve();
+				else {
+					setTimeout(() => {
+						if (settings.removeBlinkAfterDelay)
+							this.elementToPopulate.classList.remove('blinkcaret');
+
+						resolve();
+					}, settings.delayAfter);
+				}
+			};
+
+			const recurseType = () => {
 				if (this.currentIndex < this.content.length) {
 					this.elementToPopulate.innerText += this.content.charAt(this.currentIndex);
 					this.currentIndex++;
@@ -41,30 +66,36 @@ class Typewriter {
 					else speed = Math.round(Math.random() * settings.speed);
 
 					setTimeout(() => {
-						type();
+						recurseType();
 					}, speed);
 				} else {
-					setTimeout(() => {
-						this.elementToPopulate.classList.remove('caret');
-						if (settings.blinkAfter) this.elementToPopulate.classList.add('blinkcaret');
-					}, 50);
-
-					if (!settings.delayAfter) resolve();
-					else {
-						setTimeout(() => {
-							if (settings.removeBlinkAfterDelay)
-								this.elementToPopulate.classList.remove('blinkcaret');
-
-							resolve();
-						}, settings.delayAfter);
-					}
+					finishType();
 				}
 			};
 
 			this.elementToPopulate.style.display = 'block';
 			this.elementToPopulate.classList.add('caret');
 
-			type();
+			if (settings.delayBefore) {
+				if (settings.blinkBefore)
+					setTimeout(() => {
+						this.elementToPopulate.classList.add('blinkcaret');
+					}, 50);
+
+				setTimeout(() => {
+					setTimeout(() => {
+						this.elementToPopulate.classList.remove('blinkcaret');
+					}, 50);
+
+					if (settings.instant) {
+						finishType();
+					} else recurseType();
+				}, settings.delayBefore);
+			} else {
+				if (settings.instant) {
+					finishType();
+				} else recurseType();
+			}
 		});
 	}
 }

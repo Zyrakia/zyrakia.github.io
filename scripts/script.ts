@@ -3,7 +3,10 @@ const terminal = new Terminal();
 terminal.render(document.querySelector('body'));
 
 async function displayDefault() {
-	await terminal.addLine('solo', 'Established connection with remote server');
+	await terminal.addLine('solo', 'Established connection with remote server', undefined, {
+		delayBefore: 3000,
+		blinkBefore: true,
+	});
 	await terminal.addLine('solo', 'Awaiting user input...');
 
 	await terminal.addLine('raw', '', undefined, {
