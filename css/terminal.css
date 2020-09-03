@@ -137,6 +137,7 @@
 	outline: none;
 	background: transparent;
 	animation: fadeIn 500ms;
+	cursor: text;
 }
 
 .command_input::placeholder {
@@ -169,4 +170,8 @@
 	100% {
 		opacity: 0;
 	}
+}
+
+a {
+	color: unset;
 }
