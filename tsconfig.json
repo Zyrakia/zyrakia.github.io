@@ -1,0 +1,9 @@
+{
+	"compilerOptions": {
+		"rootDir": "./scripts",
+		"watch": true,
+		"lib": ["ESNext", "DOM"],
+		"inlineSourceMap": true,
+		"target": "ES5"
+	}
+}
