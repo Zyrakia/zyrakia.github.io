@@ -150,6 +150,11 @@
 	color: var(--solo-prefix-clr);
 }
 
+a {
+	color: unset;
+	animation: fadeIn 500ms;
+}
+
 @keyframes fadeIn {
 	0% {
 		transform: translateX(-200px);
@@ -170,8 +175,4 @@
 	100% {
 		opacity: 0;
 	}
-}
-
-a {
-	color: unset;
 }
