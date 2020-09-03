@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var terminal = new Terminal();
-terminal.render(document.querySelector('body'));
+terminal.render(document.querySelector('body'), 'prepend');
 function displayDefault() {
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
@@ -43,31 +43,105 @@ function displayDefault() {
                 case 0: return [4 /*yield*/, terminal.addLine('solo', 'Established connection with remote server', undefined, {
                         delayBefore: 3000,
                         blinkBefore: true,
+                        delayAfter: 1000,
                     })];
                 case 1:
                     _a.sent();
-                    return [4 /*yield*/, terminal.addLine('solo', 'Awaiting user input...')];
+                    return [4 /*yield*/, terminal.addLine('start', 'Opening drive')];
                 case 2:
                     _a.sent();
-                    return [4 /*yield*/, terminal.addLine('raw', '', undefined, {
-                            delayAfter: 2000,
+                    return [4 /*yield*/, terminal.addLine('indent', 'Finding caches', 1, {
+                            delayAfter: 1500,
                             blinkAfter: true,
                             removeBlinkAfterDelay: true,
                         })];
                 case 3:
                     _a.sent();
-                    return [4 /*yield*/, terminal.addLine('raw', '', undefined, {
+                    return [4 /*yield*/, terminal.addLine('indent', 'Found 7', 2, {
+                            speed: 5,
+                        })];
+                case 4:
+                    _a.sent();
+                    return [4 /*yield*/, terminal.addLine('indent', 'Queued 3 (OVERFLOW)', 2, {
+                            speed: 5,
+                        })];
+                case 5:
+                    _a.sent();
+                    return [4 /*yield*/, terminal.addLine('indent', 'Skipping 4 (EMPTY)', 2, {
+                            speed: 5,
+                        })];
+                case 6:
+                    _a.sent();
+                    return [4 /*yield*/, terminal.addLine('indent', 'Scanning overflow caches', 1, {
+                            delayAfter: 1000,
+                            blinkAfter: true,
+                            removeBlinkAfterDelay: true,
+                        })];
+                case 7:
+                    _a.sent();
+                    return [4 /*yield*/, terminal.addLine('indent', '1.. 49 KB (SAFE)', 2, {
+                            delayAfter: 3000,
+                            blinkAfter: true,
+                            removeBlinkAfterDelay: true,
+                        })];
+                case 8:
+                    _a.sent();
+                    return [4 /*yield*/, terminal.addLine('indent', '2.. 130 KB (PARTIAL)', 2, {
+                            delayAfter: 500,
+                            blinkAfter: true,
+                            removeBlinkAfterDelay: true,
+                        })];
+                case 9:
+                    _a.sent();
+                    return [4 /*yield*/, terminal.addLine('indent', '3.. 14 KB (SAFE)', 2)];
+                case 10:
+                    _a.sent();
+                    return [4 /*yield*/, terminal.addLine('indent', 'Deleting overflow caches', 1, {
+                            delayAfter: 1000,
+                            blinkAfter: true,
+                            removeBlinkAfterDelay: true,
+                        })];
+                case 11:
+                    _a.sent();
+                    return [4 /*yield*/, terminal.addLine('indent', '1.. DONE', 2, {
+                            delayAfter: 3000,
+                            blinkAfter: true,
+                            removeBlinkAfterDelay: true,
+                        })];
+                case 12:
+                    _a.sent();
+                    return [4 /*yield*/, terminal.addLine('indent', '2.. DONE (REMAIN 12 KB)', 2, {
+                            delayAfter: 500,
+                            blinkAfter: true,
+                            removeBlinkAfterDelay: true,
+                        })];
+                case 13:
+                    _a.sent();
+                    return [4 /*yield*/, terminal.addLine('indent', '3.. DONE', 2)];
+                case 14:
+                    _a.sent();
+                    return [4 /*yield*/, terminal.addLine('end', 'Closing drive', undefined, {
                             delayAfter: 2000,
                             blinkAfter: true,
                             removeBlinkAfterDelay: true,
                         })];
-                case 4:
+                case 15:
+                    _a.sent();
+                    return [4 /*yield*/, terminal.addLine('solo', 'Awaiting user input...')];
+                case 16:
+                    _a.sent();
+                    return [4 /*yield*/, terminal.addLine('raw', '', undefined, {
+                            delayAfter: 3000,
+                            blinkAfter: true,
+                            removeBlinkAfterDelay: true,
+                        })];
+                case 17:
                     _a.sent();
                     return [4 /*yield*/, terminal.addLine('solo', 'Error occured')];
-                case 5:
+                case 18:
                     _a.sent();
-                    return [4 /*yield*/, terminal.addLine('solo', 'Forcing remote connection to terminate... Goodbye world!')];
-                case 6:
+                    return [4 /*yield*/, terminal.addLine('solo', 'Forcing remote connection to terminate... Goodbye World!')];
+                case 19:
                     _a.sent();
                     return [2 /*return*/];
             }
@@ -75,4 +149,4 @@ function displayDefault() {
     });
 }
 displayDefault();
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2NyaXB0LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsic2NyaXB0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLElBQU0sUUFBUSxHQUFHLElBQUksUUFBUSxFQUFFLENBQUM7QUFFaEMsUUFBUSxDQUFDLE1BQU0sQ0FBQyxRQUFRLENBQUMsYUFBYSxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUM7QUFFaEQsU0FBZSxjQUFjOzs7O3dCQUM1QixxQkFBTSxRQUFRLENBQUMsT0FBTyxDQUFDLE1BQU0sRUFBRSwyQ0FBMkMsRUFBRSxTQUFTLEVBQUU7d0JBQ3RGLFdBQVcsRUFBRSxJQUFJO3dCQUNqQixXQUFXLEVBQUUsSUFBSTtxQkFDakIsQ0FBQyxFQUFBOztvQkFIRixTQUdFLENBQUM7b0JBQ0gscUJBQU0sUUFBUSxDQUFDLE9BQU8sQ0FBQyxNQUFNLEVBQUUsd0JBQXdCLENBQUMsRUFBQTs7b0JBQXhELFNBQXdELENBQUM7b0JBRXpELHFCQUFNLFFBQVEsQ0FBQyxPQUFPLENBQUMsS0FBSyxFQUFFLEVBQUUsRUFBRSxTQUFTLEVBQUU7NEJBQzVDLFVBQVUsRUFBRSxJQUFJOzRCQUNoQixVQUFVLEVBQUUsSUFBSTs0QkFDaEIscUJBQXFCLEVBQUUsSUFBSTt5QkFDM0IsQ0FBQyxFQUFBOztvQkFKRixTQUlFLENBQUM7b0JBRUgscUJBQU0sUUFBUSxDQUFDLE9BQU8sQ0FBQyxLQUFLLEVBQUUsRUFBRSxFQUFFLFNBQVMsRUFBRTs0QkFDNUMsVUFBVSxFQUFFLElBQUk7NEJBQ2hCLFVBQVUsRUFBRSxJQUFJOzRCQUNoQixxQkFBcUIsRUFBRSxJQUFJO3lCQUMzQixDQUFDLEVBQUE7O29CQUpGLFNBSUUsQ0FBQztvQkFFSCxxQkFBTSxRQUFRLENBQUMsT0FBTyxDQUFDLE1BQU0sRUFBRSxlQUFlLENBQUMsRUFBQTs7b0JBQS9DLFNBQStDLENBQUM7b0JBQ2hELHFCQUFNLFFBQVEsQ0FBQyxPQUFPLENBQUMsTUFBTSxFQUFFLDBEQUEwRCxDQUFDLEVBQUE7O29CQUExRixTQUEwRixDQUFDOzs7OztDQUMzRjtBQUVELGNBQWMsRUFBRSxDQUFDIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic2NyaXB0LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsic2NyaXB0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLElBQU0sUUFBUSxHQUFHLElBQUksUUFBUSxFQUFFLENBQUM7QUFFaEMsUUFBUSxDQUFDLE1BQU0sQ0FBQyxRQUFRLENBQUMsYUFBYSxDQUFDLE1BQU0sQ0FBQyxFQUFFLFNBQVMsQ0FBQyxDQUFDO0FBRTNELFNBQWUsY0FBYzs7Ozt3QkFDNUIscUJBQU0sUUFBUSxDQUFDLE9BQU8sQ0FBQyxNQUFNLEVBQUUsMkNBQTJDLEVBQUUsU0FBUyxFQUFFO3dCQUN0RixXQUFXLEVBQUUsSUFBSTt3QkFDakIsV0FBVyxFQUFFLElBQUk7d0JBQ2pCLFVBQVUsRUFBRSxJQUFJO3FCQUNoQixDQUFDLEVBQUE7O29CQUpGLFNBSUUsQ0FBQztvQkFFSCxxQkFBTSxRQUFRLENBQUMsT0FBTyxDQUFDLE9BQU8sRUFBRSxlQUFlLENBQUMsRUFBQTs7b0JBQWhELFNBQWdELENBQUM7b0JBRWpELHFCQUFNLFFBQVEsQ0FBQyxPQUFPLENBQUMsUUFBUSxFQUFFLGdCQUFnQixFQUFFLENBQUMsRUFBRTs0QkFDckQsVUFBVSxFQUFFLElBQUk7NEJBQ2hCLFVBQVUsRUFBRSxJQUFJOzRCQUNoQixxQkFBcUIsRUFBRSxJQUFJO3lCQUMzQixDQUFDLEVBQUE7O29CQUpGLFNBSUUsQ0FBQztvQkFDSCxxQkFBTSxRQUFRLENBQUMsT0FBTyxDQUFDLFFBQVEsRUFBRSxTQUFTLEVBQUUsQ0FBQyxFQUFFOzRCQUM5QyxLQUFLLEVBQUUsQ0FBQzt5QkFDUixDQUFDLEVBQUE7O29CQUZGLFNBRUUsQ0FBQztvQkFDSCxxQkFBTSxRQUFRLENBQUMsT0FBTyxDQUFDLFFBQVEsRUFBRSxxQkFBcUIsRUFBRSxDQUFDLEVBQUU7NEJBQzFELEtBQUssRUFBRSxDQUFDO3lCQUNSLENBQUMsRUFBQTs7b0JBRkYsU0FFRSxDQUFDO29CQUNILHFCQUFNLFFBQVEsQ0FBQyxPQUFPLENBQUMsUUFBUSxFQUFFLG9CQUFvQixFQUFFLENBQUMsRUFBRTs0QkFDekQsS0FBSyxFQUFFLENBQUM7eUJBQ1IsQ0FBQyxFQUFBOztvQkFGRixTQUVFLENBQUM7b0JBQ0gscUJBQU0sUUFBUSxDQUFDLE9BQU8sQ0FBQyxRQUFRLEVBQUUsMEJBQTBCLEVBQUUsQ0FBQyxFQUFFOzRCQUMvRCxVQUFVLEVBQUUsSUFBSTs0QkFDaEIsVUFBVSxFQUFFLElBQUk7NEJBQ2hCLHFCQUFxQixFQUFFLElBQUk7eUJBQzNCLENBQUMsRUFBQTs7b0JBSkYsU0FJRSxDQUFDO29CQUNILHFCQUFNLFFBQVEsQ0FBQyxPQUFPLENBQUMsUUFBUSxFQUFFLGtCQUFrQixFQUFFLENBQUMsRUFBRTs0QkFDdkQsVUFBVSxFQUFFLElBQUk7NEJBQ2hCLFVBQVUsRUFBRSxJQUFJOzRCQUNoQixxQkFBcUIsRUFBRSxJQUFJO3lCQUMzQixDQUFDLEVBQUE7O29CQUpGLFNBSUUsQ0FBQztvQkFDSCxxQkFBTSxRQUFRLENBQUMsT0FBTyxDQUFDLFFBQVEsRUFBRSxzQkFBc0IsRUFBRSxDQUFDLEVBQUU7NEJBQzNELFVBQVUsRUFBRSxHQUFHOzRCQUNmLFVBQVUsRUFBRSxJQUFJOzRCQUNoQixxQkFBcUIsRUFBRSxJQUFJO3lCQUMzQixDQUFDLEVBQUE7O29CQUpGLFNBSUUsQ0FBQztvQkFDSCxxQkFBTSxRQUFRLENBQUMsT0FBTyxDQUFDLFFBQVEsRUFBRSxrQkFBa0IsRUFBRSxDQUFDLENBQUMsRUFBQTs7b0JBQXZELFNBQXVELENBQUM7b0JBQ3hELHFCQUFNLFFBQVEsQ0FBQyxPQUFPLENBQUMsUUFBUSxFQUFFLDBCQUEwQixFQUFFLENBQUMsRUFBRTs0QkFDL0QsVUFBVSxFQUFFLElBQUk7NEJBQ2hCLFVBQVUsRUFBRSxJQUFJOzRCQUNoQixxQkFBcUIsRUFBRSxJQUFJO3lCQUMzQixDQUFDLEVBQUE7O29CQUpGLFNBSUUsQ0FBQztvQkFDSCxxQkFBTSxRQUFRLENBQUMsT0FBTyxDQUFDLFFBQVEsRUFBRSxVQUFVLEVBQUUsQ0FBQyxFQUFFOzRCQUMvQyxVQUFVLEVBQUUsSUFBSTs0QkFDaEIsVUFBVSxFQUFFLElBQUk7NEJBQ2hCLHFCQUFxQixFQUFFLElBQUk7eUJBQzNCLENBQUMsRUFBQTs7b0JBSkYsU0FJRSxDQUFDO29CQUNILHFCQUFNLFFBQVEsQ0FBQyxPQUFPLENBQUMsUUFBUSxFQUFFLHlCQUF5QixFQUFFLENBQUMsRUFBRTs0QkFDOUQsVUFBVSxFQUFFLEdBQUc7NEJBQ2YsVUFBVSxFQUFFLElBQUk7NEJBQ2hCLHFCQUFxQixFQUFFLElBQUk7eUJBQzNCLENBQUMsRUFBQTs7b0JBSkYsU0FJRSxDQUFDO29CQUNILHFCQUFNLFFBQVEsQ0FBQyxPQUFPLENBQUMsUUFBUSxFQUFFLFVBQVUsRUFBRSxDQUFDLENBQUMsRUFBQTs7b0JBQS9DLFNBQStDLENBQUM7b0JBRWhELHFCQUFNLFFBQVEsQ0FBQyxPQUFPLENBQUMsS0FBSyxFQUFFLGVBQWUsRUFBRSxTQUFTLEVBQUU7NEJBQ3pELFVBQVUsRUFBRSxJQUFJOzRCQUNoQixVQUFVLEVBQUUsSUFBSTs0QkFDaEIscUJBQXFCLEVBQUUsSUFBSTt5QkFDM0IsQ0FBQyxFQUFBOztvQkFKRixTQUlFLENBQUM7b0JBRUgscUJBQU0sUUFBUSxDQUFDLE9BQU8sQ0FBQyxNQUFNLEVBQUUsd0JBQXdCLENBQUMsRUFBQTs7b0JBQXhELFNBQXdELENBQUM7b0JBRXpELHFCQUFNLFFBQVEsQ0FBQyxPQUFPLENBQUMsS0FBSyxFQUFFLEVBQUUsRUFBRSxTQUFTLEVBQUU7NEJBQzVDLFVBQVUsRUFBRSxJQUFJOzRCQUNoQixVQUFVLEVBQUUsSUFBSTs0QkFDaEIscUJBQXFCLEVBQUUsSUFBSTt5QkFDM0IsQ0FBQyxFQUFBOztvQkFKRixTQUlFLENBQUM7b0JBRUgscUJBQU0sUUFBUSxDQUFDLE9BQU8sQ0FBQyxNQUFNLEVBQUUsZUFBZSxDQUFDLEVBQUE7O29CQUEvQyxTQUErQyxDQUFDO29CQUNoRCxxQkFBTSxRQUFRLENBQUMsT0FBTyxDQUFDLE1BQU0sRUFBRSwwREFBMEQsQ0FBQyxFQUFBOztvQkFBMUYsU0FBMEYsQ0FBQzs7Ozs7Q0FDM0Y7QUFFRCxjQUFjLEVBQUUsQ0FBQyJ9
