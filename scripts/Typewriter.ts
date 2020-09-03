@@ -12,7 +12,7 @@ interface TypewriterSettings {
 class Typewriter {
 	public static readonly DEFAULT_SETTINGS: TypewriterSettings = {
 		instant: false,
-		speed: 100,
+		speed: 10,
 		random: true,
 		delayAfter: 500,
 		blinkAfter: false,
