@@ -40,14 +40,35 @@ var AboutCommand = /** @class */ (function () {
     }
     AboutCommand.prototype.invoke = function (ctx) {
         return __awaiter(this, void 0, void 0, function () {
-            var settings, reply;
+            var reply;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        settings = '(def,5,true,1)';
-                        reply = "\n        START||About me:\n        \n        RAW-1-" + settings + "||I am a Canadian high school student interested in programming.\n        RAW-1-" + settings + "||Specifically web development... can you tell?\n        RAW-1-" + settings + "||\n        RAW-1-" + settings + "||I am always looking forward to learning and working on projects.\n        RAW-1-" + settings + "||My dream goal is to work at Tesla or Twitch.\n        RAW-1-" + settings + "||But that's a stretch.\n        RAW-1-" + settings + "||\n        RAW-1-" + settings + "||My favorite language is the almighty Typescript.\n        RAW-1-" + settings + "||Mainly because I started programming in Java.\n\n        END||But who cares, try 'projects'.\n        ";
+                        reply = "\n        START||About me:\n        RAW||\n        RAW||\n        INDENT-1||I like web development.\n        RAW||\n        RAW||\n        END||Who cares, try 'projects'.\n        ";
+                        // RAW-1-${settings}||I am a Canadian high school student interested in programming.
+                        // RAW-1-${settings}||Specifically web development... can you tell?
+                        // RAW-1-${settings}||
+                        // RAW-1-${settings}||I am always looking forward to learning and working on projects.
+                        // RAW-1-${settings}||My dream goal is to work at Tesla or Twitch.
+                        // RAW-1-${settings}||But that's a stretch.
+                        // RAW-1-${settings}||
+                        // RAW-1-${settings}||My favorite language is the almighty Typescript.
+                        // RAW-1-${settings}||Mainly because I started programming in Java.
+                        // END||But who cares, try 'projects'.
+                        // `;
                         return [4 /*yield*/, ctx.getTerminal().sayString(reply)];
                     case 1:
+                        // RAW-1-${settings}||I am a Canadian high school student interested in programming.
+                        // RAW-1-${settings}||Specifically web development... can you tell?
+                        // RAW-1-${settings}||
+                        // RAW-1-${settings}||I am always looking forward to learning and working on projects.
+                        // RAW-1-${settings}||My dream goal is to work at Tesla or Twitch.
+                        // RAW-1-${settings}||But that's a stretch.
+                        // RAW-1-${settings}||
+                        // RAW-1-${settings}||My favorite language is the almighty Typescript.
+                        // RAW-1-${settings}||Mainly because I started programming in Java.
+                        // END||But who cares, try 'projects'.
+                        // `;
                         _a.sent();
                         ctx.getTerminal().openInput();
                         return [2 /*return*/];
@@ -57,4 +78,4 @@ var AboutCommand = /** @class */ (function () {
     };
     return AboutCommand;
 }());
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQWJvdXQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJBYm91dC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQTtJQUFBO1FBQ1UsZUFBVSxHQUFHLE9BQU8sQ0FBQztJQXlCL0IsQ0FBQztJQXZCTSw2QkFBTSxHQUFaLFVBQWEsR0FBMkI7Ozs7Ozt3QkFDakMsUUFBUSxHQUFHLGdCQUFnQixDQUFDO3dCQUU1QixLQUFLLEdBQUcseURBR0EsUUFBUSx3RkFDUixRQUFRLHVFQUNSLFFBQVEsMEJBQ1IsUUFBUSwwRkFDUixRQUFRLHNFQUNSLFFBQVEsK0NBQ1IsUUFBUSwwQkFDUixRQUFRLDBFQUNSLFFBQVEsNkdBR2YsQ0FBQzt3QkFFUixxQkFBTSxHQUFHLENBQUMsV0FBVyxFQUFFLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxFQUFBOzt3QkFBeEMsU0FBd0MsQ0FBQzt3QkFFekMsR0FBRyxDQUFDLFdBQVcsRUFBRSxDQUFDLFNBQVMsRUFBRSxDQUFDOzs7OztLQUM5QjtJQUNGLG1CQUFDO0FBQUQsQ0FBQyxBQTFCRCxJQTBCQyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQWJvdXQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJBYm91dC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQTtJQUFBO1FBQ1UsZUFBVSxHQUFHLE9BQU8sQ0FBQztJQTZCL0IsQ0FBQztJQTNCTSw2QkFBTSxHQUFaLFVBQWEsR0FBMkI7Ozs7Ozt3QkFDakMsS0FBSyxHQUFHLHNMQVFQLENBQUM7d0JBQ1Isb0ZBQW9GO3dCQUNwRixtRUFBbUU7d0JBQ25FLHNCQUFzQjt3QkFDdEIsc0ZBQXNGO3dCQUN0RixrRUFBa0U7d0JBQ2xFLDJDQUEyQzt3QkFDM0Msc0JBQXNCO3dCQUN0QixzRUFBc0U7d0JBQ3RFLG1FQUFtRTt3QkFFbkUsc0NBQXNDO3dCQUN0QyxLQUFLO3dCQUVMLHFCQUFNLEdBQUcsQ0FBQyxXQUFXLEVBQUUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLEVBQUE7O3dCQWJ4QyxvRkFBb0Y7d0JBQ3BGLG1FQUFtRTt3QkFDbkUsc0JBQXNCO3dCQUN0QixzRkFBc0Y7d0JBQ3RGLGtFQUFrRTt3QkFDbEUsMkNBQTJDO3dCQUMzQyxzQkFBc0I7d0JBQ3RCLHNFQUFzRTt3QkFDdEUsbUVBQW1FO3dCQUVuRSxzQ0FBc0M7d0JBQ3RDLEtBQUs7d0JBRUwsU0FBd0MsQ0FBQzt3QkFFekMsR0FBRyxDQUFDLFdBQVcsRUFBRSxDQUFDLFNBQVMsRUFBRSxDQUFDOzs7OztLQUM5QjtJQUNGLG1CQUFDO0FBQUQsQ0FBQyxBQTlCRCxJQThCQyJ9
