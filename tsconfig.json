@@ -3,7 +3,7 @@
 		"rootDir": "./scripts",
 		"watch": true,
 		"lib": ["ESNext", "DOM"],
-		"inlineSourceMap": true,
+		"sourceMap": true,
 		"target": "ES5"
 	}
 }
