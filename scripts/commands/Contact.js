@@ -44,7 +44,7 @@ var ContactCommand = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        reply = "\n        START||My socials\n\t\tINDENT-1-(def,def,def,500)||<a target=\"_blank\" href=\"https://www.twitter.com/zyrakia\">Twitter: @Zyrakia</a>\n\t\tINDENT-1||Discord: Zyrakia#3215\n        ";
+                        reply = "\n        START||My socials\n\t\tINDENT-1-(def,def,def,500)||<a target=\"_blank\" href=\"https://www.twitter.com/zyrakia\">Twitter: @Zyrakia</a>\n        INDENT-1||Discord: Zyrakia#3215\n        INDENT-1||Email: mailzyrakia@gmail.com\n        ";
                         return [4 /*yield*/, ctx.getTerminal().sayString(reply)];
                     case 1:
                         _a.sent();
@@ -56,4 +56,4 @@ var ContactCommand = /** @class */ (function () {
     };
     return ContactCommand;
 }());
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ29udGFjdC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNvbnRhY3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7SUFBQTtRQUNVLGVBQVUsR0FBRyxTQUFTLENBQUM7SUFZakMsQ0FBQztJQVZNLCtCQUFNLEdBQVosVUFBYSxHQUEyQjs7Ozs7O3dCQUNqQyxLQUFLLEdBQUcsaU1BSVAsQ0FBQzt3QkFFUixxQkFBTSxHQUFHLENBQUMsV0FBVyxFQUFFLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxFQUFBOzt3QkFBeEMsU0FBd0MsQ0FBQzt3QkFDekMsR0FBRyxDQUFDLFdBQVcsRUFBRSxDQUFDLFNBQVMsRUFBRSxDQUFDOzs7OztLQUM5QjtJQUNGLHFCQUFDO0FBQUQsQ0FBQyxBQWJELElBYUMifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ29udGFjdC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNvbnRhY3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7SUFBQTtRQUNVLGVBQVUsR0FBRyxTQUFTLENBQUM7SUFhakMsQ0FBQztJQVhNLCtCQUFNLEdBQVosVUFBYSxHQUEyQjs7Ozs7O3dCQUNqQyxLQUFLLEdBQUcscVBBS1AsQ0FBQzt3QkFFUixxQkFBTSxHQUFHLENBQUMsV0FBVyxFQUFFLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxFQUFBOzt3QkFBeEMsU0FBd0MsQ0FBQzt3QkFDekMsR0FBRyxDQUFDLFdBQVcsRUFBRSxDQUFDLFNBQVMsRUFBRSxDQUFDOzs7OztLQUM5QjtJQUNGLHFCQUFDO0FBQUQsQ0FBQyxBQWRELElBY0MifQ==
