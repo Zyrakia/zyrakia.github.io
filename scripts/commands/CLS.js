@@ -45,7 +45,7 @@ var ClearCommand = /** @class */ (function () {
                     case 0: return [4 /*yield*/, ctx.clearTerminal()];
                     case 1:
                         _a.sent();
-                        ctx.openInput();
+                        ctx.getTerminal().openInput();
                         return [2 /*return*/];
                 }
             });
@@ -53,4 +53,4 @@ var ClearCommand = /** @class */ (function () {
     };
     return ClearCommand;
 }());
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ0xTLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQ0xTLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBO0lBQUE7UUFDVSxlQUFVLEdBQUcsS0FBSyxDQUFDO0lBTTdCLENBQUM7SUFKTSw2QkFBTSxHQUFaLFVBQWEsR0FBMkI7Ozs7NEJBQ3ZDLHFCQUFNLEdBQUcsQ0FBQyxhQUFhLEVBQUUsRUFBQTs7d0JBQXpCLFNBQXlCLENBQUM7d0JBQzFCLEdBQUcsQ0FBQyxTQUFTLEVBQUUsQ0FBQzs7Ozs7S0FDaEI7SUFDRixtQkFBQztBQUFELENBQUMsQUFQRCxJQU9DIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ0xTLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiQ0xTLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBO0lBQUE7UUFDVSxlQUFVLEdBQUcsS0FBSyxDQUFDO0lBTTdCLENBQUM7SUFKTSw2QkFBTSxHQUFaLFVBQWEsR0FBMkI7Ozs7NEJBQ3ZDLHFCQUFNLEdBQUcsQ0FBQyxhQUFhLEVBQUUsRUFBQTs7d0JBQXpCLFNBQXlCLENBQUM7d0JBQzFCLEdBQUcsQ0FBQyxXQUFXLEVBQUUsQ0FBQyxTQUFTLEVBQUUsQ0FBQzs7Ozs7S0FDOUI7SUFDRixtQkFBQztBQUFELENBQUMsQUFQRCxJQU9DIn0=

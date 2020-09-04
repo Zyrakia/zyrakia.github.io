@@ -34,22 +34,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var HelpCommand = /** @class */ (function () {
-    function HelpCommand() {
-        this.identifier = 'help';
+var AboutCommand = /** @class */ (function () {
+    function AboutCommand() {
+        this.identifier = 'about';
     }
-    HelpCommand.prototype.invoke = function (ctx) {
+    AboutCommand.prototype.invoke = function (ctx) {
         return __awaiter(this, void 0, void 0, function () {
-            var reply;
+            var settings, reply;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        reply = "\n        START-0-(def,1,false,10,false,def,0,def)||Available commands\n\t\t";
-                        ctx.getTerminal()
-                            .getIdentifiers()
-                            .forEach(function (identifier) {
-                            reply += "\nINDENT-1-(def,1,false,10,false,def,0,def)||'" + identifier + "'";
-                        });
+                        settings = '(def,5,true,1)';
+                        reply = "\n        START||About me:\n        \n        RAW-1-" + settings + "||I am a Canadian high school student interested in programming.\n        RAW-1-" + settings + "||Specifically web development... can you tell?\n        RAW-1-" + settings + "||\n        RAW-1-" + settings + "||I am always looking forward to learning and working on projects.\n        RAW-1-" + settings + "||My dream goal is to work at Tesla or Twitch.\n        RAW-1-" + settings + "||But that's a stretch.\n        RAW-1-" + settings + "||\n        RAW-1-" + settings + "||My favorite language is the almighty Typescript.\n        RAW-1-" + settings + "||Mainly because I started programming in Java.\n\n        END||But who cares, try 'projects'.\n        ";
                         return [4 /*yield*/, ctx.getTerminal().sayString(reply)];
                     case 1:
                         _a.sent();
@@ -59,6 +55,6 @@ var HelpCommand = /** @class */ (function () {
             });
         });
     };
-    return HelpCommand;
+    return AboutCommand;
 }());
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSGVscC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkhlbHAudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7SUFBQTtRQUNVLGVBQVUsR0FBRyxNQUFNLENBQUM7SUFnQjlCLENBQUM7SUFkTSw0QkFBTSxHQUFaLFVBQWEsR0FBMkI7Ozs7Ozt3QkFDbkMsS0FBSyxHQUFHLDhFQUVYLENBQUM7d0JBRUYsR0FBRyxDQUFDLFdBQVcsRUFBRTs2QkFDZixjQUFjLEVBQUU7NkJBQ2hCLE9BQU8sQ0FBQyxVQUFDLFVBQVU7NEJBQ25CLEtBQUssSUFBSSxtREFBaUQsVUFBVSxNQUFHLENBQUM7d0JBQ3pFLENBQUMsQ0FBQyxDQUFDO3dCQUVKLHFCQUFNLEdBQUcsQ0FBQyxXQUFXLEVBQUUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLEVBQUE7O3dCQUF4QyxTQUF3QyxDQUFDO3dCQUN6QyxHQUFHLENBQUMsV0FBVyxFQUFFLENBQUMsU0FBUyxFQUFFLENBQUM7Ozs7O0tBQzlCO0lBQ0Ysa0JBQUM7QUFBRCxDQUFDLEFBakJELElBaUJDIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQWJvdXQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJBYm91dC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQTtJQUFBO1FBQ1UsZUFBVSxHQUFHLE9BQU8sQ0FBQztJQXlCL0IsQ0FBQztJQXZCTSw2QkFBTSxHQUFaLFVBQWEsR0FBMkI7Ozs7Ozt3QkFDakMsUUFBUSxHQUFHLGdCQUFnQixDQUFDO3dCQUU1QixLQUFLLEdBQUcseURBR0EsUUFBUSx3RkFDUixRQUFRLHVFQUNSLFFBQVEsMEJBQ1IsUUFBUSwwRkFDUixRQUFRLHNFQUNSLFFBQVEsK0NBQ1IsUUFBUSwwQkFDUixRQUFRLDBFQUNSLFFBQVEsNkdBR2YsQ0FBQzt3QkFFUixxQkFBTSxHQUFHLENBQUMsV0FBVyxFQUFFLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxFQUFBOzt3QkFBeEMsU0FBd0MsQ0FBQzt3QkFFekMsR0FBRyxDQUFDLFdBQVcsRUFBRSxDQUFDLFNBQVMsRUFBRSxDQUFDOzs7OztLQUM5QjtJQUNGLG1CQUFDO0FBQUQsQ0FBQyxBQTFCRCxJQTBCQyJ9
