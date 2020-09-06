@@ -34,30 +34,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var HelpCommand = /** @class */ (function () {
-    function HelpCommand() {
-        this.identifier = 'help';
+var ExportCommand = /** @class */ (function () {
+    function ExportCommand() {
+        this.identifier = 'export';
     }
-    HelpCommand.prototype.invoke = function (terminal) {
+    ExportCommand.prototype.invoke = function (originTerminal) {
         return __awaiter(this, void 0, void 0, function () {
-            var response;
+            var saveContent;
             return __generator(this, function (_a) {
-                response = [];
-                response.push(new TerminalLine('Available commands', LineType.START)
-                    .setAnimationSpeed(5)
-                    .setDelayAfter(0));
-                terminal.getCommandIdentifiers().forEach(function (identifier) {
-                    response.push(new TerminalLine("'" + identifier + "'", LineType.INDENT, 1)
-                        .setAnimationSpeed(5)
-                        .setDelayAfter(0));
-                });
-                terminal.addLines.apply(terminal, response).then(function () {
-                    terminal.openInput();
-                });
+                saveContent = TerminalStringer.toReadableString(originTerminal);
+                navigator.clipboard.writeText(saveContent);
+                terminal.addLines(new TerminalLine('Saved terminal contents to clipboard.'));
+                terminal.openInput();
                 return [2 /*return*/];
             });
         });
     };
-    return HelpCommand;
+    return ExportCommand;
 }());
-//# sourceMappingURL=Help.js.map
+//# sourceMappingURL=Export.js.map

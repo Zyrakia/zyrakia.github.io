@@ -38,41 +38,22 @@ var AboutCommand = /** @class */ (function () {
     function AboutCommand() {
         this.identifier = 'about';
     }
-    AboutCommand.prototype.invoke = function (ctx) {
+    AboutCommand.prototype.invoke = function (terminal) {
         return __awaiter(this, void 0, void 0, function () {
-            var reply;
+            var response;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        reply = "\n        START||About me:\n        RAW||\n        RAW||\n        INDENT-1||I like web development.\n        RAW||\n        RAW||\n        END||Who cares, try 'projects'.\n        ";
-                        // RAW-1-${settings}||I am a Canadian high school student interested in programming.
-                        // RAW-1-${settings}||Specifically web development... can you tell?
-                        // RAW-1-${settings}||
-                        // RAW-1-${settings}||I am always looking forward to learning and working on projects.
-                        // RAW-1-${settings}||My dream goal is to work at Tesla or Twitch.
-                        // RAW-1-${settings}||But that's a stretch.
-                        // RAW-1-${settings}||
-                        // RAW-1-${settings}||My favorite language is the almighty Typescript.
-                        // RAW-1-${settings}||Mainly because I started programming in Java.
-                        // END||But who cares, try 'projects'.
-                        // `;
-                        return [4 /*yield*/, ctx.getTerminal().sayString(reply)];
-                    case 1:
-                        // RAW-1-${settings}||I am a Canadian high school student interested in programming.
-                        // RAW-1-${settings}||Specifically web development... can you tell?
-                        // RAW-1-${settings}||
-                        // RAW-1-${settings}||I am always looking forward to learning and working on projects.
-                        // RAW-1-${settings}||My dream goal is to work at Tesla or Twitch.
-                        // RAW-1-${settings}||But that's a stretch.
-                        // RAW-1-${settings}||
-                        // RAW-1-${settings}||My favorite language is the almighty Typescript.
-                        // RAW-1-${settings}||Mainly because I started programming in Java.
-                        // END||But who cares, try 'projects'.
-                        // `;
-                        _a.sent();
-                        ctx.getTerminal().openInput();
-                        return [2 /*return*/];
-                }
+                response = [];
+                response.push(new TerminalLine('About me:', LineType.START));
+                response.push(new TerminalLine('', LineType.RAW));
+                response.push(new TerminalLine('', LineType.RAW));
+                response.push(new TerminalLine('I like web development.', LineType.INDENT, 1));
+                response.push(new TerminalLine('', LineType.RAW));
+                response.push(new TerminalLine('', LineType.RAW));
+                response.push(new TerminalLine("Who cares, try 'projects'.", LineType.END));
+                terminal.addLines.apply(terminal, response).then(function () {
+                    terminal.openInput();
+                });
+                return [2 /*return*/];
             });
         });
     };

@@ -38,19 +38,20 @@ var ProjectsCommand = /** @class */ (function () {
     function ProjectsCommand() {
         this.identifier = 'projects';
     }
-    ProjectsCommand.prototype.invoke = function (ctx) {
+    ProjectsCommand.prototype.invoke = function (terminal) {
         return __awaiter(this, void 0, void 0, function () {
-            var reply;
+            var response;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        reply = "\n        START||My projects\n        INDENT-1||This website\n\t\tINDENT-1-(def,def,def,500)||<a target=\"_blank\" href=\"https://www.npmjs.com/package/tmijs-commander\">TMIJS Commander</a>\n\t\tINDENT-1-(def,def,def,500)||<a target=\"_blank\" href=\"https://zyrakia.github.io/HyperStatus/\">HyperStatus (Abandoned, might redo someday)</a>\n\t\tRAW-1||Everything else is pretty boring...\n        ";
-                        return [4 /*yield*/, ctx.getTerminal().sayString(reply)];
-                    case 1:
-                        _a.sent();
-                        ctx.getTerminal().openInput();
-                        return [2 /*return*/];
-                }
+                response = [];
+                response.push(new TerminalLine('My projects:', LineType.START));
+                response.push(new TerminalLine('This website', LineType.INDENT, 1));
+                response.push(new TerminalLine('<a target="_blank" href="https://www.npmjs.com/package/tmijs-commander">TMIJS Commander</a>', LineType.INDENT, 1));
+                response.push(new TerminalLine('<a target="_blank" href="https://zyrakia.github.io/HyperStatus/">HyperStatus (Abandoned, might redo someday)</a>', LineType.INDENT, 1));
+                response.push(new TerminalLine('Everything else is boring...', LineType.END));
+                terminal.addLines.apply(terminal, response).then(function () {
+                    terminal.openInput();
+                });
+                return [2 /*return*/];
             });
         });
     };

@@ -38,19 +38,19 @@ var ContactCommand = /** @class */ (function () {
     function ContactCommand() {
         this.identifier = 'contact';
     }
-    ContactCommand.prototype.invoke = function (ctx) {
+    ContactCommand.prototype.invoke = function (terminal) {
         return __awaiter(this, void 0, void 0, function () {
-            var reply;
+            var response;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        reply = "\n        START||My socials\n\t\tINDENT-1-(def,def,def,500)||<a target=\"_blank\" href=\"https://www.twitter.com/zyrakia\">Twitter: @Zyrakia</a>\n\t\tINDENT-1||Email: mailzyrakia@gmail.com\n\t\tRAW-1||But why would you want to contact me!?\n        ";
-                        return [4 /*yield*/, ctx.getTerminal().sayString(reply)];
-                    case 1:
-                        _a.sent();
-                        ctx.getTerminal().openInput();
-                        return [2 /*return*/];
-                }
+                response = [];
+                response.push(new TerminalLine('My socials:', LineType.START));
+                response.push(new TerminalLine('<a target="_blank" href="https://www.twitter.com/zyrakia">Twitter: @Zyrakia</a>', LineType.INDENT, 1));
+                response.push(new TerminalLine('Email: mailzyrakia@gmail.com', LineType.INDENT, 1));
+                response.push(new TerminalLine('But why contact me?!', LineType.END));
+                terminal.addLines.apply(terminal, response).then(function () {
+                    terminal.openInput();
+                });
+                return [2 /*return*/];
             });
         });
     };

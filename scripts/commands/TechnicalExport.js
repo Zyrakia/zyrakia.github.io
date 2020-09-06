@@ -34,49 +34,22 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var LineType;
-(function (LineType) {
-    LineType["RAW"] = "raw";
-    LineType["SOLO"] = "solo";
-    LineType["START"] = "start";
-    LineType["END"] = "end";
-    LineType["INDENT"] = "indent";
-})(LineType || (LineType = {}));
-var Renderable = /** @class */ (function () {
-    function Renderable() {
+var TechnicalExport = /** @class */ (function () {
+    function TechnicalExport() {
+        this.identifier = 'techxport';
     }
-    Renderable.prototype.getParentElement = function () {
-        return this.parentElement;
-    };
-    return Renderable;
-}());
-var TerminalCommandContext = /** @class */ (function () {
-    function TerminalCommandContext(terminal, identifier) {
-        this.terminal = terminal;
-        this.identifier = identifier;
-    }
-    TerminalCommandContext.prototype.clearTerminal = function () {
+    TechnicalExport.prototype.invoke = function (originTerminal) {
         return __awaiter(this, void 0, void 0, function () {
+            var saveContent;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        while (terminal.getParentElement().firstChild) {
-                            terminal.getParentElement().removeChild(terminal.getParentElement().firstChild);
-                        }
-                        return [4 /*yield*/, this.terminal.sayDefault()];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
+                saveContent = TerminalStringer.toString(originTerminal);
+                navigator.clipboard.writeText(saveContent);
+                terminal.addLines(new TerminalLine('Saved technical terminal contents to clipboard.'));
+                terminal.openInput();
+                return [2 /*return*/];
             });
         });
     };
-    TerminalCommandContext.prototype.getIdentifier = function () {
-        return this.identifier;
-    };
-    TerminalCommandContext.prototype.getTerminal = function () {
-        return this.terminal;
-    };
-    return TerminalCommandContext;
+    return TechnicalExport;
 }());
-//# sourceMappingURL=Types.js.map
+//# sourceMappingURL=TechnicalExport.js.map

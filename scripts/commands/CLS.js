@@ -34,23 +34,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var ClearCommand = /** @class */ (function () {
-    function ClearCommand() {
+var CLSCommand = /** @class */ (function () {
+    function CLSCommand() {
         this.identifier = 'cls';
     }
-    ClearCommand.prototype.invoke = function (ctx) {
+    CLSCommand.prototype.invoke = function (originTerminal) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, ctx.clearTerminal()];
-                    case 1:
-                        _a.sent();
-                        ctx.getTerminal().openInput();
-                        return [2 /*return*/];
-                }
+                originTerminal.clear();
+                return [2 /*return*/];
             });
         });
     };
-    return ClearCommand;
+    return CLSCommand;
 }());
 //# sourceMappingURL=CLS.js.map
