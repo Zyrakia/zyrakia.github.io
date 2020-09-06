@@ -42,14 +42,19 @@ var ContactCommand = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
-                response = [];
-                response.push(new TerminalLine('My socials:', LineType.START));
-                response.push(new TerminalLine('<a target="_blank" href="https://www.twitter.com/zyrakia">Twitter: @Zyrakia</a>', LineType.INDENT, 1));
-                response.push(new TerminalLine('Email: mailzyrakia@gmail.com', LineType.INDENT, 1));
-                response.push(new TerminalLine('But why contact me?!', LineType.END));
-                terminal.addLines.apply(terminal, response);
-                terminal.openInput();
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0:
+                        response = [];
+                        response.push(new TerminalLine('My socials:', LineType.START));
+                        response.push(new TerminalLine('<a target="_blank" href="https://www.twitter.com/zyrakia">Twitter: @Zyrakia</a>', LineType.INDENT, 1));
+                        response.push(new TerminalLine('Email: mailzyrakia@gmail.com', LineType.INDENT, 1));
+                        response.push(new TerminalLine('But why contact me?!', LineType.END));
+                        return [4 /*yield*/, terminal.addLines.apply(terminal, response)];
+                    case 1:
+                        _a.sent();
+                        terminal.openInput();
+                        return [2 /*return*/];
+                }
             });
         });
     };
