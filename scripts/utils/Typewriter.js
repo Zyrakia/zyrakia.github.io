@@ -1,12 +1,12 @@
-var LineTypewriter = /** @class */ (function () {
-    function LineTypewriter(line) {
+var Typewriter = /** @class */ (function () {
+    function Typewriter(line) {
         this.index = 0;
         this.line = line;
         this.content = this.line.getContent();
         this.element = this.line.getElement();
         this.settings = this.line.getAnimationSettings();
     }
-    LineTypewriter.prototype.start = function () {
+    Typewriter.prototype.start = function () {
         var _this = this;
         this.element.classList.add('caret');
         if (this.settings.blinkBefore)
@@ -22,7 +22,7 @@ var LineTypewriter = /** @class */ (function () {
             _this.resolve = resolve;
         });
     };
-    LineTypewriter.prototype.recurseType = function () {
+    Typewriter.prototype.recurseType = function () {
         var _this = this;
         if (this.index < this.content.length) {
             var speed = this.settings.randomAnimation
@@ -37,7 +37,7 @@ var LineTypewriter = /** @class */ (function () {
         else
             this.stop();
     };
-    LineTypewriter.prototype.stop = function () {
+    Typewriter.prototype.stop = function () {
         var _this = this;
         this.element.classList.remove('caret');
         if (this.settings.blinkAfter)
@@ -49,6 +49,6 @@ var LineTypewriter = /** @class */ (function () {
             _this.resolve();
         });
     };
-    return LineTypewriter;
+    return Typewriter;
 }());
 //# sourceMappingURL=Typewriter.js.map

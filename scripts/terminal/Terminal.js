@@ -82,7 +82,7 @@ var Terminal = /** @class */ (function (_super) {
                         line = lines[i];
                         this.lines.push(line);
                         this.parentElement.appendChild(line.getElement());
-                        return [4 /*yield*/, new LineTypewriter(line).start()];
+                        return [4 /*yield*/, new Typewriter(line).start()];
                     case 2:
                         _a.sent();
                         _a.label = 3;
