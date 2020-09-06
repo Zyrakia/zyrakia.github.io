@@ -96,12 +96,9 @@ var Terminal = /** @class */ (function (_super) {
     };
     Terminal.prototype.addDefaults = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var defaultLine;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        defaultLine = new TerminalLine("Enter a command... try 'projects' or 'help'").setDelayAfter(0);
-                        return [4 /*yield*/, this.addLines(defaultLine)];
+                    case 0: return [4 /*yield*/, this.addLines(new TerminalLine("Enter a command... try 'projects' or 'help'").setDelayAfter(0))];
                     case 1:
                         _a.sent();
                         this.openInput();
@@ -144,26 +141,23 @@ var Terminal = /** @class */ (function (_super) {
     Terminal.prototype.closeInput = function () {
         this.parentElement.removeChild(this.commandInputElement);
         var content = this.commandInputElement.innerText;
-        this.previousCommand = content;
-        //parse command
-        var words = content.split(' ');
-        var identifier = words.splice(0, 1)[0].toLowerCase();
-        var args = words;
         this.commandInputElement.innerText = '';
-        var foundCommand = this.commands.find(function (cmd) { return cmd.identifier.toLowerCase() === identifier; });
-        if (identifier.includes("'")) {
-            var response = new TerminalLine('Lose the apostrophe...').setDelayAfter(0);
-            terminal.addLines(response);
-            this.openInput();
+        this.previousCommand = content;
+        var parser = new TerminalCommandParser(content, this);
+        if (!parser.isValid()) {
+            terminal
+                .addLines(new TerminalLine("That's not right... try 'help'?").setDelayAfter(0))
+                .then(function () {
+                terminal.openInput();
+            });
             return;
         }
-        if (!foundCommand) {
-            var response = new TerminalLine("That's not right... try 'help'?").setDelayAfter(0);
-            terminal.addLines(response);
-            this.openInput();
-            return;
-        }
-        foundCommand.invoke(this, args);
+        parser.getCommand().invoke(this, parser.getArgs());
+    };
+    Terminal.prototype.clear = function () {
+        this.lines = [];
+        this.parentElement.innerHTML = '';
+        this.openInput();
     };
     Terminal.prototype.registerCommand = function (command) {
         this.commands.push(command);
@@ -171,16 +165,14 @@ var Terminal = /** @class */ (function (_super) {
     Terminal.prototype.getCommandInputElement = function () {
         return this.commandInputElement;
     };
+    Terminal.prototype.getCommands = function () {
+        return this.commands;
+    };
     Terminal.prototype.getCommandIdentifiers = function () {
-        return this.commands.map(function (cmd) { return cmd.identifier; });
+        return this.commands.map(function (cmd) { return cmd.getIdentifier(); });
     };
     Terminal.prototype.getLines = function () {
         return this.lines;
-    };
-    Terminal.prototype.clear = function () {
-        this.lines = [];
-        this.parentElement.innerHTML = '';
-        this.openInput();
     };
     return Terminal;
 }(Renderable));
