@@ -48,7 +48,7 @@ var EchoCommand = /** @class */ (function () {
                     case 1:
                         _a.sent();
                         terminal.openInput();
-                        _a.label = 2;
+                        return [2 /*return*/];
                     case 2: return [4 /*yield*/, terminal.addLines(new TerminalLine("" + args[0]))];
                     case 3:
                         _a.sent();

@@ -42,16 +42,20 @@ var ProjectsCommand = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
-                response = [];
-                response.push(new TerminalLine('My projects:', LineType.START));
-                response.push(new TerminalLine('This website', LineType.INDENT, 1));
-                response.push(new TerminalLine('<a target="_blank" href="https://www.npmjs.com/package/tmijs-commander">TMIJS Commander</a>', LineType.INDENT, 1));
-                response.push(new TerminalLine('<a target="_blank" href="https://zyrakia.github.io/HyperStatus/">HyperStatus (Abandoned, might redo someday)</a>', LineType.INDENT, 1));
-                response.push(new TerminalLine('Everything else is boring...', LineType.END));
-                terminal.addLines.apply(terminal, response).then(function () {
-                    terminal.openInput();
-                });
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0:
+                        response = [];
+                        response.push(new TerminalLine('My projects:', LineType.START));
+                        response.push(new TerminalLine('This website', LineType.INDENT, 1));
+                        response.push(new TerminalLine('<a target="_blank" href="https://www.npmjs.com/package/tmijs-commander">TMIJS Commander</a>', LineType.INDENT, 1));
+                        response.push(new TerminalLine('<a target="_blank" href="https://zyrakia.github.io/HyperStatus/">HyperStatus (Abandoned, might redo someday)</a>', LineType.INDENT, 1));
+                        response.push(new TerminalLine('Everything else is boring...', LineType.END));
+                        return [4 /*yield*/, terminal.addLines.apply(terminal, response)];
+                    case 1:
+                        _a.sent();
+                        terminal.openInput();
+                        return [2 /*return*/];
+                }
             });
         });
     };

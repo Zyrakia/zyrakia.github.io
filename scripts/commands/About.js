@@ -42,18 +42,22 @@ var AboutCommand = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
-                response = [];
-                response.push(new TerminalLine('About me:', LineType.START));
-                response.push(new TerminalLine('', LineType.RAW));
-                response.push(new TerminalLine('', LineType.RAW));
-                response.push(new TerminalLine('I like web development.', LineType.INDENT, 1));
-                response.push(new TerminalLine('', LineType.RAW));
-                response.push(new TerminalLine('', LineType.RAW));
-                response.push(new TerminalLine("Who cares, try 'projects'.", LineType.END));
-                terminal.addLines.apply(terminal, response).then(function () {
-                    terminal.openInput();
-                });
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0:
+                        response = [];
+                        response.push(new TerminalLine('About me:', LineType.START));
+                        response.push(new TerminalLine('', LineType.RAW));
+                        response.push(new TerminalLine('', LineType.RAW));
+                        response.push(new TerminalLine('I like web development.', LineType.INDENT, 1));
+                        response.push(new TerminalLine('', LineType.RAW));
+                        response.push(new TerminalLine('', LineType.RAW));
+                        response.push(new TerminalLine("Who cares, try 'projects'.", LineType.END));
+                        return [4 /*yield*/, terminal.addLines.apply(terminal, response)];
+                    case 1:
+                        _a.sent();
+                        terminal.openInput();
+                        return [2 /*return*/];
+                }
             });
         });
     };

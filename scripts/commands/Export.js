@@ -42,11 +42,16 @@ var ExportCommand = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var saveContent;
             return __generator(this, function (_a) {
-                saveContent = TerminalStringer.toReadableString(originTerminal);
-                navigator.clipboard.writeText(saveContent);
-                terminal.addLines(new TerminalLine('Saved terminal contents to clipboard.'));
-                terminal.openInput();
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0:
+                        saveContent = TerminalStringer.toReadableString(originTerminal);
+                        navigator.clipboard.writeText(saveContent);
+                        return [4 /*yield*/, terminal.addLines(new TerminalLine('Saved terminal contents to clipboard.'))];
+                    case 1:
+                        _a.sent();
+                        terminal.openInput();
+                        return [2 /*return*/];
+                }
             });
         });
     };

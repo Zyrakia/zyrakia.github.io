@@ -47,9 +47,8 @@ var ContactCommand = /** @class */ (function () {
                 response.push(new TerminalLine('<a target="_blank" href="https://www.twitter.com/zyrakia">Twitter: @Zyrakia</a>', LineType.INDENT, 1));
                 response.push(new TerminalLine('Email: mailzyrakia@gmail.com', LineType.INDENT, 1));
                 response.push(new TerminalLine('But why contact me?!', LineType.END));
-                terminal.addLines.apply(terminal, response).then(function () {
-                    terminal.openInput();
-                });
+                terminal.addLines.apply(terminal, response);
+                terminal.openInput();
                 return [2 /*return*/];
             });
         });

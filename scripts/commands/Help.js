@@ -42,19 +42,23 @@ var HelpCommand = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var response;
             return __generator(this, function (_a) {
-                response = [];
-                response.push(new TerminalLine('Available commands', LineType.START)
-                    .setAnimationSpeed(5)
-                    .setDelayAfter(0));
-                terminal.getCommandIdentifiers().forEach(function (identifier) {
-                    response.push(new TerminalLine("'" + identifier + "'", LineType.INDENT, 1)
-                        .setAnimationSpeed(5)
-                        .setDelayAfter(0));
-                });
-                terminal.addLines.apply(terminal, response).then(function () {
-                    terminal.openInput();
-                });
-                return [2 /*return*/];
+                switch (_a.label) {
+                    case 0:
+                        response = [];
+                        response.push(new TerminalLine('Available commands', LineType.START)
+                            .setAnimationSpeed(5)
+                            .setDelayAfter(0));
+                        terminal.getCommandIdentifiers().forEach(function (identifier) {
+                            response.push(new TerminalLine("'" + identifier + "'", LineType.INDENT, 1)
+                                .setAnimationSpeed(5)
+                                .setDelayAfter(0));
+                        });
+                        return [4 /*yield*/, terminal.addLines.apply(terminal, response)];
+                    case 1:
+                        _a.sent();
+                        terminal.openInput();
+                        return [2 /*return*/];
+                }
             });
         });
     };
