@@ -180,7 +180,7 @@ var Terminal = /** @class */ (function (_super) {
     Terminal.prototype.clear = function () {
         this.lines = [];
         this.parentElement.innerHTML = '';
-        this.addDefaults();
+        this.openInput();
     };
     return Terminal;
 }(Renderable));
