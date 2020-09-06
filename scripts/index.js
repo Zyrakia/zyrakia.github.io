@@ -9,4 +9,4 @@ terminal.registerCommand(new CLSCommand());
 terminal.registerCommand(new EchoCommand());
 terminal.registerCommand(new ExportCommand());
 terminal.registerCommand(new TechnicalExport());
-//# sourceMappingURL=script.js.map
+//# sourceMappingURL=index.js.map
