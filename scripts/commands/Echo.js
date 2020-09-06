@@ -40,16 +40,18 @@ var EchoCommand = /** @class */ (function () {
     }
     EchoCommand.prototype.invoke = function (terminal, args) {
         return __awaiter(this, void 0, void 0, function () {
+            var echoContent;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        if (!!args[0].trim()) return [3 /*break*/, 2];
+                        echoContent = args.join(' ');
+                        if (!!echoContent) return [3 /*break*/, 2];
                         return [4 /*yield*/, terminal.addLines(new TerminalLine('Well at least give me something to echo...'))];
                     case 1:
                         _a.sent();
                         terminal.openInput();
                         return [2 /*return*/];
-                    case 2: return [4 /*yield*/, terminal.addLines(new TerminalLine("" + args[0]))];
+                    case 2: return [4 /*yield*/, terminal.addLines(new TerminalLine("" + echoContent))];
                     case 3:
                         _a.sent();
                         terminal.openInput();
