@@ -102,7 +102,7 @@ var TerminalLine = /** @class */ (function () {
         animateTyping: true,
         randomAnimation: true,
         animationSpeed: 20,
-        delayAfter: 500,
+        delayAfter: 250,
         blinkAfter: false,
         removeBlinkAfterDelay: true,
         delayBefore: 0,

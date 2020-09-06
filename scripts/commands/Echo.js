@@ -51,7 +51,7 @@ var EchoCommand = /** @class */ (function () {
                         _a.sent();
                         terminal.openInput();
                         return [2 /*return*/];
-                    case 2: return [4 /*yield*/, terminal.addLines(new TerminalLine("" + echoContent))];
+                    case 2: return [4 /*yield*/, terminal.addLines(new TerminalLine("" + echoContent, LineType.RAW))];
                     case 3:
                         _a.sent();
                         terminal.openInput();
