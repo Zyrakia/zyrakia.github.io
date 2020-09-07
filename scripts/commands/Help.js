@@ -98,6 +98,7 @@ var HelpCommand = /** @class */ (function (_super) {
         });
     };
     HelpCommand.prototype.contain = function (n, max, min) {
+        n = Math.round(n);
         if (n > max)
             n = max;
         if (n < min)
