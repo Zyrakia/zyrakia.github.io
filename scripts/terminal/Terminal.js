@@ -142,6 +142,7 @@ var Terminal = /** @class */ (function (_super) {
         this.parentElement.appendChild(this.commandInputElement);
         this.parentElement.focus();
         this.commandInputElement.focus();
+        this.commandInputElement.scrollIntoView();
         this.inputContext = context;
     };
     Terminal.prototype.closeInput = function () {

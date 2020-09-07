@@ -28,6 +28,22 @@
 	overflow-y: auto;
 }
 
+.terminal::-webkit-scrollbar {
+	width: 10px;
+}
+
+.terminal::-webkit-scrollbar-track {
+	background: black;
+}
+
+.terminal::-webkit-scrollbar-thumb {
+	background: rgb(26, 24, 24);
+}
+
+.terminal::-webkit-scrollbar-thumb:hover {
+	background: #2e2e2e;
+}
+
 .line {
 	margin: 5px 10px;
 	color: var(--solo);

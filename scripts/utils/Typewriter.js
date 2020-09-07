@@ -30,6 +30,7 @@ var Typewriter = /** @class */ (function () {
                 : this.settings.animationSpeed;
             after(speed, function () {
                 _this.element.innerText += _this.content.charAt(_this.index);
+                _this.element.dispatchEvent(new Event('change'));
                 _this.index++;
                 _this.recurseType();
             });
