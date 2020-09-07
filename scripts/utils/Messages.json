@@ -93,5 +93,20 @@
 	"command.goto.invalidLink": {
 		"default": "How do you expect me to send you there!?",
 		"de": "Wie soll ich Sie dorthin schicken?"
+	},
+
+	"command.suggest.default": {
+		"default": "Enter your suggestion: ('cancel' to cancel)",
+		"de": "Geben Sie Ihren Vorschlag ein: ('cancel' zum Abbrechen)"
+	},
+
+	"command.suggest.cancelled": {
+		"default": "Action cancelled...",
+		"de": "Aktion abgebrochen ..."
+	},
+
+	"command.suggest.confirmation": {
+		"default": "I have yet to connect my API :(",
+		"de": "Ich muss meine API noch verbinden :("
 	}
 }
