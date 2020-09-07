@@ -1,0 +1,97 @@
+{
+	"site.title": {
+		"default": "Ole (Zyrakia) | Terminal"
+	},
+
+	"terminal.unknownCommand": {
+		"default": "That's not right... try 'help'?",
+		"de": "Das ist nicht richtig... versuchen Sie 'Hilfe'?"
+	},
+
+	"terminal.defaultMessage": {
+		"default": "Enter a command... try 'projects' or 'help'",
+		"de": "Geben Sie einen Befehl ein... versuchen Sie 'projects' oder 'help'"
+	},
+
+	"command.about.start": {
+		"default": "About me:",
+		"de": "Über mich:"
+	},
+
+	"command.about.main": {
+		"default": "I like web development.",
+		"de": "Ich mag Webentwicklung."
+	},
+
+	"command.contact.start": {
+		"default": "My socials:",
+		"de": "Meine sozialen Netzwerke:"
+	},
+
+	"command.contact.twitter": {
+		"default": "<a target=\"_blank\" href=\"https://www.twitter.com/zyrakia\">Twitter: @Zyrakia</a>"
+	},
+
+	"command.contact.email": {
+		"default": "Email: mailzyrakia@gmail.com"
+	},
+
+	"command.contact.end": {
+		"default": "But why contact me?!",
+		"de": "Aber warum mich kontaktieren?!"
+	},
+
+	"command.help.start": {
+		"default": "Available commands: (%page%/%maxPages%)",
+		"de": "Verfügbare Befehle: (%page%/%maxPages%)"
+	},
+
+	"command.projects.start": {
+		"default": "My projects:",
+		"de": "Meine Projekte:"
+	},
+
+	"command.projects.project1": {
+		"default": "This website",
+		"de": "Diese Internetseite"
+	},
+
+	"command.projects.project2": {
+		"default": "<a target=\"_blank\" href=\"https://www.npmjs.com/package/tmijs-commander\">TMIJS Commander</a>"
+	},
+
+	"command.projects.project3": {
+		"default": "<a target=\"_blank\" href=\"https://zyrakia.github.io/HyperStatus/\">HyperStatus (Abandoned, might redo someday)</a>",
+		"de": "<a target=\"_blank\" href=\"https://zyrakia.github.io/HyperStatus/\">HyperStatus (Verlassen, könnte eines Tages wiederholen)</a>"
+	},
+
+	"command.projects.end": {
+		"default": "Everything else is boring...",
+		"de": "Alles andere ist langweilig..."
+	},
+
+	"command.techexport.exported": {
+		"default": "Saved technical terminal contents to clipboard.",
+		"de": "Inhalt des technischen Terminals in der Zwischenablage gespeichert."
+	},
+
+	"command.export.exported": {
+		"default": "Saved terminal contents to clipboard.",
+		"de": "erminalinhalt in Zwischenablage gespeichert."
+	},
+
+	"command.echo.emptyMessage": {
+		"default": "Well at least give me something to echo...",
+		"de": "Na gib mir wenigstens etwas zum Echo..."
+	},
+
+	"command.goto.emptyMessage": {
+		"default": "Where would you like to go?",
+		"de": "Wo würdest du gerne hingehen?"
+	},
+
+	"command.goto.invalidLink": {
+		"default": "How do you expect me to send you there!?",
+		"de": "Wie soll ich Sie dorthin schicken?"
+	}
+}
