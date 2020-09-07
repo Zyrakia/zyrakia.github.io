@@ -30,6 +30,7 @@
 
 .terminal::-webkit-scrollbar {
 	width: 10px;
+	height: 10px;
 }
 
 .terminal::-webkit-scrollbar-track {
@@ -46,6 +47,7 @@
 
 .line {
 	margin: 5px 10px;
+	max-width: calc(100vw - 10px);
 	color: var(--solo);
 	text-shadow: 1px 1px 10px var(--solo);
 	text-transform: none;
@@ -150,8 +152,7 @@
 	margin: 5px 0;
 	color: var(--solo);
 	min-width: 50px;
-	max-width: 400px;
-	white-space: nowrap;
+	max-width: calc(100vw - 10px);
 	text-shadow: 1px 1px 10px var(--solo);
 	padding: 5px 0;
 	border: none;
@@ -159,6 +160,7 @@
 	background: transparent;
 	animation: fadeIn 500ms;
 	cursor: text;
+	word-break: break-all;
 }
 
 .command_input::placeholder {
