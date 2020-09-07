@@ -126,8 +126,11 @@ var Terminal = /** @class */ (function (_super) {
             switch (e.keyCode) {
                 case 13: {
                     e.preventDefault();
-                    if (element.innerText.trim() !== '')
-                        _this.closeInput();
+                    if (element.innerText.trim() !== '') {
+                        _this.parentElement.removeChild(_this.commandInputElement);
+                        _this.dispatchCommand(_this.commandInputElement.innerText);
+                        _this.commandInputElement.innerText = '';
+                    }
                     break;
                 }
                 case 38:
@@ -145,10 +148,7 @@ var Terminal = /** @class */ (function (_super) {
         this.commandInputElement.scrollIntoView();
         this.inputContext = context;
     };
-    Terminal.prototype.closeInput = function () {
-        this.parentElement.removeChild(this.commandInputElement);
-        var content = this.commandInputElement.innerText;
-        this.commandInputElement.innerText = '';
+    Terminal.prototype.dispatchCommand = function (content) {
         if (this.inputContext !== 'global') {
             this.inputContext.takeInput(content);
             return;
