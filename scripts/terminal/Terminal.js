@@ -169,8 +169,15 @@ var Terminal = /** @class */ (function (_super) {
         this.lines = [];
         this.parentElement.innerHTML = '';
     };
-    Terminal.prototype.registerCommand = function (command) {
-        this.commands.push(command);
+    Terminal.prototype.registerCommands = function () {
+        var _this = this;
+        var commands = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            commands[_i] = arguments[_i];
+        }
+        commands.forEach(function (cmd) {
+            _this.commands.push(cmd);
+        });
     };
     Terminal.prototype.getCommandInputElement = function () {
         return this.commandInputElement;
