@@ -10,4 +10,5 @@ terminal.registerCommand(new EchoCommand());
 terminal.registerCommand(new ExportCommand());
 terminal.registerCommand(new TechnicalExport());
 terminal.registerCommand(new GotoCommand());
+terminal.registerCommand(new PICommand());
 //# sourceMappingURL=index.js.map

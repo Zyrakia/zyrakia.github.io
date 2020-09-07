@@ -33,6 +33,7 @@
 	color: var(--solo);
 	text-shadow: 1px 1px 10px var(--solo);
 	text-transform: none;
+	word-break: break-all;
 }
 
 .terminal > .line::before {

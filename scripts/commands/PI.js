@@ -47,48 +47,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __spreadArrays = (this && this.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};
-var HelpCommand = /** @class */ (function (_super) {
-    __extends(HelpCommand, _super);
-    function HelpCommand() {
+var PICommand = /** @class */ (function (_super) {
+    __extends(PICommand, _super);
+    function PICommand() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.usage = '(page)';
-        _this.identifier = 'help';
-        _this.PER_PAGE = 5;
+        _this.identifier = '3.14';
+        _this.usage = '';
+        _this.PI1000 = '3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919530921861173819326117931051185480744623799627495673518857527248912279381830119491298336733624406566430860213949463952247371907021798609437027705392171762931767523846748184676694051320005681271452635608277857713427577896091736371787214684409012249534301465495853710507922796892589235420199561121290219608640344181598136297747713099605187072113499999983729780499510597317328160963185950244594553469083026425223082533446850352619311881710100031378387528865875332083814206171776691473035982534904287554687311595628638823537875937519577818577805321712268066130019278766111959092164201989';
         return _this;
     }
-    HelpCommand.prototype.invoke = function (terminal, args) {
+    PICommand.prototype.invoke = function (terminal) {
         return __awaiter(this, void 0, void 0, function () {
-            var response, commands, pages, pageNum, page;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        response = [];
-                        commands = __spreadArrays(terminal.getCommands());
-                        pages = Math.ceil(commands.length / this.PER_PAGE);
-                        if (args[0] && !isNaN(+args[0])) {
-                            pageNum = +args[0];
-                        }
-                        else
-                            pageNum = 1;
-                        pageNum = this.contain(pageNum, pages, 1);
-                        page = commands.splice((pageNum - 1) * this.PER_PAGE, this.PER_PAGE);
-                        response.push(new TerminalLine("Available commands: (" + pageNum + "/" + pages + ")", LineType.START)
-                            .setAnimationSpeed(5)
-                            .setDelayAfter(0));
-                        page.forEach(function (cmd) {
-                            if (cmd && cmd.getIdentifier() !== '3.14')
-                                response.push(new TerminalLine("'" + cmd.getIdentifier() + cmd.getUsage() + "'", LineType.INDENT, 1)
-                                    .setAnimationSpeed(5)
-                                    .setDelayAfter(0));
-                        });
-                        return [4 /*yield*/, terminal.addLines.apply(terminal, response)];
+                    case 0: return [4 /*yield*/, terminal.addLines(new TerminalLine(this.PI1000).setAnimationSpeed(1))];
                     case 1:
                         _a.sent();
                         terminal.openInput();
@@ -97,14 +69,6 @@ var HelpCommand = /** @class */ (function (_super) {
             });
         });
     };
-    HelpCommand.prototype.contain = function (n, max, min) {
-        n = Math.round(n);
-        if (n > max)
-            n = max;
-        if (n < min)
-            n = min;
-        return n;
-    };
-    return HelpCommand;
+    return PICommand;
 }(TerminalCommand));
-//# sourceMappingURL=Help.js.map
+//# sourceMappingURL=PI.js.map
