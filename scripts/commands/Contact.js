@@ -51,8 +51,9 @@ var ContactCommand = /** @class */ (function (_super) {
     __extends(ContactCommand, _super);
     function ContactCommand() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.identifier = 'contact';
-        _this.usage = '';
+        _this.properties = {
+            identifier: 'contact',
+        };
         return _this;
     }
     ContactCommand.prototype.invoke = function (terminal) {

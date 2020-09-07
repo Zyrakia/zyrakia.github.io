@@ -51,8 +51,9 @@ var ExportCommand = /** @class */ (function (_super) {
     __extends(ExportCommand, _super);
     function ExportCommand() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.identifier = 'export';
-        _this.usage = '';
+        _this.properties = {
+            identifier: 'export',
+        };
         return _this;
     }
     ExportCommand.prototype.invoke = function (terminal) {

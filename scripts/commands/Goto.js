@@ -51,8 +51,10 @@ var GotoCommand = /** @class */ (function (_super) {
     __extends(GotoCommand, _super);
     function GotoCommand() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.identifier = 'goto';
-        _this.usage = '(url)';
+        _this.properties = {
+            identifier: 'goto',
+            usage: '(url)',
+        };
         return _this;
     }
     GotoCommand.prototype.invoke = function (terminal, args) {

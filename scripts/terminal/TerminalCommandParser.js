@@ -20,7 +20,7 @@ var TerminalCommandParser = /** @class */ (function () {
         this.args = __spreadArrays(split);
         var foundCommand = this.terminal
             .getCommands()
-            .find(function (cmd) { return cmd.getIdentifier().toLowerCase() === _this.identifier; });
+            .find(function (cmd) { return cmd.getProperties().identifier.toLowerCase() === _this.identifier; });
         if (!foundCommand)
             return false;
         this.command = foundCommand;

@@ -179,7 +179,7 @@ var Terminal = /** @class */ (function (_super) {
         return this.commands;
     };
     Terminal.prototype.getCommandIdentifiers = function () {
-        return this.commands.map(function (cmd) { return cmd.getIdentifier(); });
+        return this.commands.map(function (cmd) { return cmd.getProperties().identifier; });
     };
     Terminal.prototype.getLines = function () {
         return this.lines;

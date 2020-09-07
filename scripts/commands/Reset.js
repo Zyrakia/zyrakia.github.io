@@ -51,8 +51,10 @@ var ResetCommand = /** @class */ (function (_super) {
     __extends(ResetCommand, _super);
     function ResetCommand() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.identifier = 'reset';
-        _this.usage = '';
+        _this.properties = {
+            identifier: 'reset',
+            hidden: true,
+        };
         return _this;
     }
     ResetCommand.prototype.invoke = function (terminal) {

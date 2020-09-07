@@ -14,14 +14,8 @@ var TerminalCommand = /** @class */ (function () {
             _this.resolveInput = resolve;
         });
     };
-    TerminalCommand.prototype.getIdentifier = function () {
-        return this.identifier;
-    };
-    TerminalCommand.prototype.getUsage = function () {
-        if (this.usage.trim())
-            return " " + this.usage;
-        else
-            return '';
+    TerminalCommand.prototype.getProperties = function () {
+        return this.properties;
     };
     return TerminalCommand;
 }());

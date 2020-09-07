@@ -51,8 +51,9 @@ var AboutCommand = /** @class */ (function (_super) {
     __extends(AboutCommand, _super);
     function AboutCommand() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.identifier = 'about';
-        _this.usage = '';
+        _this.properties = {
+            identifier: 'about',
+        };
         return _this;
     }
     AboutCommand.prototype.invoke = function (terminal) {

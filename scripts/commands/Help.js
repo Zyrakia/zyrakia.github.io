@@ -58,8 +58,10 @@ var HelpCommand = /** @class */ (function (_super) {
     __extends(HelpCommand, _super);
     function HelpCommand() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.usage = '(page)';
-        _this.identifier = 'help';
+        _this.properties = {
+            identifier: 'help',
+            usage: '(page)',
+        };
         _this.PER_PAGE = 5;
         return _this;
     }
@@ -83,10 +85,14 @@ var HelpCommand = /** @class */ (function (_super) {
                             .setAnimationSpeed(5)
                             .setDelayAfter(0));
                         page.forEach(function (cmd) {
-                            if (cmd && cmd.getIdentifier() !== '3.14')
-                                response.push(new TerminalLine("'" + cmd.getIdentifier() + cmd.getUsage() + "'", LineType.INDENT, 1)
-                                    .setAnimationSpeed(5)
-                                    .setDelayAfter(0));
+                            if (cmd) {
+                                var _a = cmd.getProperties(), identifier = _a.identifier, usage = _a.usage, hidden = _a.hidden;
+                                if (!hidden) {
+                                    response.push(new TerminalLine("'" + identifier + (usage ? " " + usage : '') + "'", LineType.INDENT, 1)
+                                        .setAnimationSpeed(5)
+                                        .setDelayAfter(0));
+                                }
+                            }
                         });
                         return [4 /*yield*/, terminal.addLines.apply(terminal, response)];
                     case 1:
