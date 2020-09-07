@@ -168,7 +168,6 @@ var Terminal = /** @class */ (function (_super) {
     Terminal.prototype.clear = function () {
         this.lines = [];
         this.parentElement.innerHTML = '';
-        this.openInput();
     };
     Terminal.prototype.registerCommand = function (command) {
         this.commands.push(command);

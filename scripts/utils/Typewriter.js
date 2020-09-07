@@ -12,6 +12,7 @@ var Typewriter = /** @class */ (function () {
         if (this.settings.blinkBefore)
             this.element.classList.add('blinkcaret');
         return new Promise(function (resolve) {
+            _this.resolve = resolve;
             after(_this.settings.delayBefore, function () {
                 _this.element.classList.remove('blinkcaret');
                 if (_this.settings.animateTyping)
@@ -19,7 +20,6 @@ var Typewriter = /** @class */ (function () {
                 else
                     _this.stop();
             });
-            _this.resolve = resolve;
         });
     };
     Typewriter.prototype.recurseType = function () {

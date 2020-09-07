@@ -1,3 +1,16 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,48 +47,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var _this = this;
-var terminal = new Terminal();
-terminal.render(document.querySelector('body'), 'prepend');
-terminal.registerCommand(new HelpCommand());
-terminal.registerCommand(new ProjectsCommand());
-terminal.registerCommand(new AboutCommand());
-terminal.registerCommand(new ContactCommand());
-terminal.registerCommand(new CLSCommand());
-terminal.registerCommand(new ResetCommand());
-terminal.registerCommand(new EchoCommand());
-terminal.registerCommand(new ExportCommand());
-terminal.registerCommand(new TechnicalExport());
-terminal.registerCommand(new GotoCommand());
-terminal.registerCommand(new PICommand());
-window.addEventListener('load', function () { return __awaiter(_this, void 0, void 0, function () {
-    var lines, parsedLines;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                lines = localStorage.getItem('previousLines');
-                if (!lines) return [3 /*break*/, 2];
-                parsedLines = TerminalStringer.linesFromString(lines);
-                parsedLines.forEach(function (line) {
-                    line.setAnimateTyping(false).setDelayAfter(0).setDelayBefore(0);
-                });
-                return [4 /*yield*/, terminal.addLines.apply(terminal, parsedLines)];
-            case 1:
-                _a.sent();
-                localStorage.removeItem('previousLines');
-                terminal.openInput();
-                return [3 /*break*/, 3];
-            case 2:
-                terminal.addDefaults();
-                _a.label = 3;
-            case 3: return [2 /*return*/];
-        }
-    });
-}); });
-window.addEventListener('beforeunload', function () {
-    if (terminal.getLines().length > 1) {
-        var linesToSave = TerminalStringer.toString(terminal);
-        localStorage.setItem('previousLines', linesToSave);
+var ResetCommand = /** @class */ (function (_super) {
+    __extends(ResetCommand, _super);
+    function ResetCommand() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.identifier = 'reset';
+        _this.usage = '';
+        return _this;
     }
-});
-//# sourceMappingURL=index.js.map
+    ResetCommand.prototype.invoke = function (terminal) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                terminal.clear();
+                terminal.addDefaults();
+                return [2 /*return*/];
+            });
+        });
+    };
+    return ResetCommand;
+}(TerminalCommand));
+//# sourceMappingURL=Reset.js.map
