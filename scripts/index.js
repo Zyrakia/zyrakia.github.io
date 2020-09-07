@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var _this = this;
 var terminal = new Terminal();
 terminal.render(document.querySelector('body'), 'prepend');
-terminal.registerCommands(new HelpCommand(), new ProjectsCommand(), new AboutCommand(), new ContactCommand(), new ContactCommand(), new CLSCommand(), new ResetCommand(), new EchoCommand(), new ExportCommand(), new TechnicalExport(), new GotoCommand(), new PICommand());
+terminal.registerCommands(new HelpCommand(), new ProjectsCommand(), new AboutCommand(), new ContactCommand(), new CLSCommand(), new ResetCommand(), new EchoCommand(), new ExportCommand(), new TechnicalExport(), new GotoCommand(), new PICommand());
 window.addEventListener('load', function () { return __awaiter(_this, void 0, void 0, function () {
     var lines, parsedLines;
     return __generator(this, function (_a) {
