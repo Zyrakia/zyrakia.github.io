@@ -47,6 +47,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 var HelpCommand = /** @class */ (function (_super) {
     __extends(HelpCommand, _super);
     function HelpCommand() {
@@ -58,27 +65,24 @@ var HelpCommand = /** @class */ (function (_super) {
     }
     HelpCommand.prototype.invoke = function (terminal, args) {
         return __awaiter(this, void 0, void 0, function () {
-            var response, commands, maxPages, thisPageNum, thisPage;
+            var response, commands, pages, pageNum, page;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         response = [];
-                        commands = terminal.getCommands();
-                        maxPages = Math.ceil(commands.length / this.PER_PAGE);
+                        commands = __spreadArrays(terminal.getCommands());
+                        pages = Math.ceil(commands.length / this.PER_PAGE);
                         if (args[0] && !isNaN(+args[0])) {
-                            thisPageNum = +args[0];
+                            pageNum = +args[0];
                         }
                         else
-                            thisPageNum = 1;
-                        if (thisPageNum > maxPages)
-                            thisPageNum = maxPages;
-                        if (thisPageNum < 1)
-                            thisPageNum = 1;
-                        thisPage = commands.slice(thisPageNum-- * this.PER_PAGE, this.PER_PAGE);
-                        response.push(new TerminalLine("Available commands: (" + thisPageNum + "/" + maxPages + ")", LineType.START)
+                            pageNum = 1;
+                        pageNum = this.contain(pageNum, pages, 1);
+                        page = commands.splice((pageNum - 1) * this.PER_PAGE, this.PER_PAGE);
+                        response.push(new TerminalLine("Available commands: (" + pageNum + "/" + pages + ")", LineType.START)
                             .setAnimationSpeed(5)
                             .setDelayAfter(0));
-                        thisPage.forEach(function (cmd) {
+                        page.forEach(function (cmd) {
                             if (cmd)
                                 response.push(new TerminalLine("'" + cmd.getIdentifier() + cmd.getUsage() + "'", LineType.INDENT, 1)
                                     .setAnimationSpeed(5)
@@ -92,6 +96,13 @@ var HelpCommand = /** @class */ (function (_super) {
                 }
             });
         });
+    };
+    HelpCommand.prototype.contain = function (n, max, min) {
+        if (n > max)
+            n = max;
+        if (n < min)
+            n = min;
+        return n;
     };
     return HelpCommand;
 }(TerminalCommand));
