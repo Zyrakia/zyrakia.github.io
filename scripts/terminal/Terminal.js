@@ -125,7 +125,7 @@ var Terminal = /** @class */ (function (_super) {
         element.addEventListener('keydown', function (e) {
             if (e.keyCode === 13) {
                 e.preventDefault();
-                if (element.innerText !== '')
+                if (element.innerText.trim() !== '')
                     _this.closeInput();
             }
             if (e.keyCode === 38 && _this.previousCommand)
@@ -133,15 +133,21 @@ var Terminal = /** @class */ (function (_super) {
         });
         this.commandInputElement = element;
     };
-    Terminal.prototype.openInput = function () {
+    Terminal.prototype.openInput = function (context) {
+        if (context === void 0) { context = 'global'; }
         this.parentElement.appendChild(this.commandInputElement);
         this.parentElement.focus();
         this.commandInputElement.focus();
+        this.inputContext = context;
     };
     Terminal.prototype.closeInput = function () {
         this.parentElement.removeChild(this.commandInputElement);
         var content = this.commandInputElement.innerText;
         this.commandInputElement.innerText = '';
+        if (this.inputContext !== 'global') {
+            this.inputContext.takeInput(content);
+            return;
+        }
         this.previousCommand = content;
         var parser = new TerminalCommandParser(content, this);
         if (!parser.isValid()) {
