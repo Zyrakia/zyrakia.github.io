@@ -96,8 +96,8 @@
 	},
 
 	"command.suggest.default": {
-		"default": "Enter your suggestion: ('cancel' to cancel)",
-		"de": "Geben Sie Ihren Vorschlag ein: ('cancel' zum Abbrechen)"
+		"default": "Enter your suggestion, or 'cancel':",
+		"de": "Geben Sie Ihren Vorschlag ein, oder 'cancel':"
 	},
 
 	"command.suggest.cancelled": {

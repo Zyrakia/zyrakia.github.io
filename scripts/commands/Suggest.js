@@ -62,7 +62,7 @@ var SuggestCommand = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        def = new TerminalLine("Enter your suggestion: ('cancel' to cancel)");
+                        def = new TerminalLine("Enter your suggestion, or 'cancel':");
                         return [4 /*yield*/, terminal.addLines(def)];
                     case 1:
                         _a.sent();
