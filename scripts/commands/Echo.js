@@ -52,6 +52,7 @@ var EchoCommand = /** @class */ (function (_super) {
     function EchoCommand() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.identifier = 'echo';
+        _this.usage = '[...contents]';
         return _this;
     }
     EchoCommand.prototype.invoke = function (terminal, args) {

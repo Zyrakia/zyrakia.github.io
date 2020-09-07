@@ -52,6 +52,7 @@ var ProjectsCommand = /** @class */ (function (_super) {
     function ProjectsCommand() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.identifier = 'projects';
+        _this.usage = '';
         return _this;
     }
     ProjectsCommand.prototype.invoke = function (terminal) {

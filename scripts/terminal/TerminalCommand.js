@@ -17,6 +17,12 @@ var TerminalCommand = /** @class */ (function () {
     TerminalCommand.prototype.getIdentifier = function () {
         return this.identifier;
     };
+    TerminalCommand.prototype.getUsage = function () {
+        if (this.usage.trim())
+            return " " + this.usage;
+        else
+            return '';
+    };
     return TerminalCommand;
 }());
 //# sourceMappingURL=TerminalCommand.js.map

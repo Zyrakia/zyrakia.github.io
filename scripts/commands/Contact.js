@@ -52,6 +52,7 @@ var ContactCommand = /** @class */ (function (_super) {
     function ContactCommand() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.identifier = 'contact';
+        _this.usage = '';
         return _this;
     }
     ContactCommand.prototype.invoke = function (terminal) {

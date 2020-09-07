@@ -52,6 +52,7 @@ var CLSCommand = /** @class */ (function (_super) {
     function CLSCommand() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.identifier = 'cls';
+        _this.usage = '';
         return _this;
     }
     CLSCommand.prototype.invoke = function (terminal) {

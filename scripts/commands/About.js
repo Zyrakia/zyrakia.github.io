@@ -52,6 +52,7 @@ var AboutCommand = /** @class */ (function (_super) {
     function AboutCommand() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.identifier = 'about';
+        _this.usage = '';
         return _this;
     }
     AboutCommand.prototype.invoke = function (terminal) {

@@ -52,6 +52,7 @@ var TechnicalExport = /** @class */ (function (_super) {
     function TechnicalExport() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.identifier = 'techexport';
+        _this.usage = '';
         return _this;
     }
     TechnicalExport.prototype.invoke = function (terminal) {
