@@ -53,7 +53,7 @@ var Terminal = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.commands = [];
         _this.lines = [];
-        _this.previousCommand = '';
+        _this.previousInput = '';
         _this.genCommandInputElement();
         return _this;
     }
@@ -123,13 +123,17 @@ var Terminal = /** @class */ (function (_super) {
             element.focus();
         });
         element.addEventListener('keydown', function (e) {
-            if (e.keyCode === 13) {
-                e.preventDefault();
-                if (element.innerText.trim() !== '')
-                    _this.closeInput();
+            switch (e.keyCode) {
+                case 13: {
+                    e.preventDefault();
+                    if (element.innerText.trim() !== '')
+                        _this.closeInput();
+                    break;
+                }
+                case 38:
+                    if (_this.previousInput)
+                        _this.commandInputElement.innerText = _this.previousInput;
             }
-            if (e.keyCode === 38 && _this.previousCommand)
-                _this.commandInputElement.innerText = _this.previousCommand;
         });
         this.commandInputElement = element;
     };
@@ -148,7 +152,7 @@ var Terminal = /** @class */ (function (_super) {
             this.inputContext.takeInput(content);
             return;
         }
-        this.previousCommand = content;
+        this.previousInput = content;
         var parser = new TerminalCommandParser(content, this);
         if (!parser.isValid()) {
             terminal

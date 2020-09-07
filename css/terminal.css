@@ -109,6 +109,10 @@
 	text-transform: uppercase;
 }
 
+.line[data-linetype='start']:first-child {
+	margin-top: 0;
+}
+
 .line[data-linetype='end'] {
 	margin-bottom: 15px;
 	color: var(--end-section);

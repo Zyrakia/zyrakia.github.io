@@ -47,51 +47,48 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var HelpCommand = /** @class */ (function (_super) {
-    __extends(HelpCommand, _super);
-    function HelpCommand() {
+var GotoCommand = /** @class */ (function (_super) {
+    __extends(GotoCommand, _super);
+    function GotoCommand() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.COMMANDS_PER_PAGE = 5;
-        _this.identifier = 'help';
+        _this.identifier = 'goto';
         return _this;
     }
-    HelpCommand.prototype.invoke = function (terminal, args) {
+    GotoCommand.prototype.invoke = function (terminal, args) {
         return __awaiter(this, void 0, void 0, function () {
-            var response, identifiers, maxPages, thisPageNum, thisPage;
+            var location, error_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        response = [];
-                        identifiers = terminal.getCommandIdentifiers();
-                        maxPages = Math.ceil(identifiers.length / this.COMMANDS_PER_PAGE);
-                        if (args[0] && !isNaN(+args[0])) {
-                            thisPageNum = +args[0];
-                        }
-                        else
-                            thisPageNum = 1;
-                        if (thisPageNum > maxPages)
-                            thisPageNum = maxPages;
-                        if (thisPageNum < 0)
-                            thisPageNum = 1;
-                        thisPage = identifiers.splice((thisPageNum - 1) * this.COMMANDS_PER_PAGE, this.COMMANDS_PER_PAGE);
-                        response.push(new TerminalLine("Available commands: (" + thisPageNum + "/" + maxPages + ")", LineType.START)
-                            .setAnimationSpeed(5)
-                            .setDelayAfter(0));
-                        thisPage.forEach(function (identifier) {
-                            if (identifier)
-                                response.push(new TerminalLine("'" + identifier + "'", LineType.INDENT, 1)
-                                    .setAnimationSpeed(5)
-                                    .setDelayAfter(0));
-                        });
-                        return [4 /*yield*/, terminal.addLines.apply(terminal, response)];
+                        location = args[0];
+                        if (!!location) return [3 /*break*/, 3];
+                        return [4 /*yield*/, terminal.addLines(new TerminalLine('Where would you like to go?'))];
                     case 1:
                         _a.sent();
+                        return [4 /*yield*/, this.openInput(terminal)];
+                    case 2:
+                        location = _a.sent();
+                        _a.label = 3;
+                    case 3:
+                        if (!location.includes('https://') || !location.includes('http://'))
+                            location = 'https://' + location;
+                        _a.label = 4;
+                    case 4:
+                        _a.trys.push([4, 5, , 7]);
+                        window.location.replace(location);
+                        return [3 /*break*/, 7];
+                    case 5:
+                        error_1 = _a.sent();
+                        return [4 /*yield*/, terminal.addLines(new TerminalLine('How do you expect me to send you there!?'))];
+                    case 6:
+                        _a.sent();
                         terminal.openInput();
-                        return [2 /*return*/];
+                        return [3 /*break*/, 7];
+                    case 7: return [2 /*return*/];
                 }
             });
         });
     };
-    return HelpCommand;
+    return GotoCommand;
 }(TerminalCommand));
-//# sourceMappingURL=Help.js.map
+//# sourceMappingURL=Goto.js.map
