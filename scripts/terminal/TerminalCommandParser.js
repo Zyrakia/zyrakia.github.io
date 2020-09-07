@@ -29,7 +29,7 @@ var TerminalCommandParser = /** @class */ (function () {
     TerminalCommandParser.prototype.validate = function () {
         if (!this.str.trim())
             return false;
-        if (this.str.includes("'"))
+        if (this.str.split(' ')[0].includes("'"))
             return false;
         return true;
     };
