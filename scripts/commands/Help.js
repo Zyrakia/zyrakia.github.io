@@ -79,7 +79,7 @@ var HelpCommand = /** @class */ (function (_super) {
                             thisPageNum = 1;
                         if (thisPageNum > maxPages)
                             thisPageNum = maxPages;
-                        if (thisPageNum < 0)
+                        if (thisPageNum < 1)
                             thisPageNum = 1;
                         thisPage = commands.splice((thisPageNum - 1) * this.COMMANDS_PER_PAGE, this.COMMANDS_PER_PAGE);
                         response.push(new TerminalLine("Available commands: (" + thisPageNum + "/" + maxPages + ")", LineType.START)
