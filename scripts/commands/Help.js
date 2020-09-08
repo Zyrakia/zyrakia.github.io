@@ -72,8 +72,8 @@ var HelpCommand = /** @class */ (function (_super) {
                 switch (_a.label) {
                     case 0:
                         response = [];
-                        commands = __spreadArrays(terminal.getCommands());
-                        pages = Math.floor(commands.length / this.PER_PAGE);
+                        commands = __spreadArrays(terminal.getCommands()).filter(function (cmd) { return !cmd.getProperties().hidden; });
+                        pages = Math.ceil(commands.length / this.PER_PAGE);
                         if (args[0] && !isNaN(+args[0])) {
                             pageNum = +args[0];
                         }
@@ -85,13 +85,11 @@ var HelpCommand = /** @class */ (function (_super) {
                             .setAnimationSpeed(5)
                             .setDelayAfter(0));
                         page.forEach(function (cmd) {
-                            if (cmd) {
-                                var _a = cmd.getProperties(), identifier = _a.identifier, usage = _a.usage, hidden = _a.hidden;
-                                if (!hidden) {
-                                    response.push(new TerminalLine("'" + identifier + (usage ? " " + usage : '') + "'", LineType.INDENT, 1)
-                                        .setAnimationSpeed(5)
-                                        .setDelayAfter(0));
-                                }
+                            var _a = cmd.getProperties(), identifier = _a.identifier, usage = _a.usage, hidden = _a.hidden;
+                            if (!hidden) {
+                                response.push(new TerminalLine("'" + identifier + (usage ? " " + usage : '') + "'", LineType.INDENT, 1)
+                                    .setAnimationSpeed(5)
+                                    .setDelayAfter(0));
                             }
                         });
                         return [4 /*yield*/, terminal.addLines.apply(terminal, response)];
