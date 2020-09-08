@@ -25,9 +25,6 @@ var TerminalLine = /** @class */ (function () {
         element.classList.add('line');
         if (!this.content)
             this.content = '&nbsp;';
-        element.addEventListener('change', function () {
-            element.scrollIntoView();
-        });
         this.lineElement = element;
         this.applyAttributes();
     };
