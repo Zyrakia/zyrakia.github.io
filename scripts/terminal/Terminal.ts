@@ -5,10 +5,11 @@ class Terminal extends Renderable<HTMLSpanElement> {
 	private commands: TerminalCommand[] = [];
 
 	private lines: TerminalLine[] = [];
-
 	private previousInputs = new TraversableArray();
-
 	private inputContext: InputContext;
+
+	private cmdPredictor: StringPredictor = new StringPredictor();
+	private currentPrediction: string = '';
 
 	constructor() {
 		super();
@@ -61,6 +62,21 @@ class Terminal extends Renderable<HTMLSpanElement> {
 
 		element.addEventListener('keydown', (e: KeyboardEvent) => {
 			switch (e.key) {
+				case 'Tab': {
+					e.preventDefault();
+
+					if (this.currentPrediction) {
+						this.commandInputElement.innerText += this.currentPrediction;
+						this.currentPrediction = '';
+						this.commandInputElement.setAttribute(
+							'data-prediction',
+							this.currentPrediction
+						);
+					}
+
+					break;
+				}
+
 				case 'Enter': {
 					e.preventDefault();
 					if (element.innerText.trim() !== '') {
@@ -83,6 +99,31 @@ class Terminal extends Renderable<HTMLSpanElement> {
 			}
 		});
 
+		element.addEventListener('keyup', (e: KeyboardEvent) => {
+			switch (e.key) {
+				case 'Backspace': {
+					const content = this.commandInputElement.innerText;
+
+					this.currentPrediction = this.cmdPredictor.predict(content) as string;
+
+					this.commandInputElement.setAttribute(
+						'data-prediction',
+						this.currentPrediction
+					);
+
+					break;
+				}
+			}
+		});
+
+		element.addEventListener('keypress', (e: KeyboardEvent) => {
+			this.currentPrediction = this.cmdPredictor.predict(
+				this.commandInputElement.innerText + e.key
+			) as string;
+
+			this.commandInputElement.setAttribute('data-prediction', this.currentPrediction);
+		});
+
 		this.commandInputElement = element;
 	}
 
@@ -100,6 +141,7 @@ class Terminal extends Renderable<HTMLSpanElement> {
 			return;
 		}
 
+		this.currentPrediction = '';
 		this.previousInputs.enter(content);
 		this.previousInputs.to(this.previousInputs.len() - 1);
 
@@ -124,6 +166,7 @@ class Terminal extends Renderable<HTMLSpanElement> {
 	public registerCommands(...commands: TerminalCommand[]) {
 		commands.forEach((cmd) => {
 			this.commands.push(cmd);
+			this.cmdPredictor.set(this.getCommandIdentifiers());
 		});
 	}
 

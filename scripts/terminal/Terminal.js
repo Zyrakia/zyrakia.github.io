@@ -54,6 +54,8 @@ var Terminal = /** @class */ (function (_super) {
         _this.commands = [];
         _this.lines = [];
         _this.previousInputs = new TraversableArray();
+        _this.cmdPredictor = new StringPredictor();
+        _this.currentPrediction = '';
         _this.genCommandInputElement();
         return _this;
     }
@@ -124,6 +126,15 @@ var Terminal = /** @class */ (function (_super) {
         });
         element.addEventListener('keydown', function (e) {
             switch (e.key) {
+                case 'Tab': {
+                    e.preventDefault();
+                    if (_this.currentPrediction) {
+                        _this.commandInputElement.innerText += _this.currentPrediction;
+                        _this.currentPrediction = '';
+                        _this.commandInputElement.setAttribute('data-prediction', _this.currentPrediction);
+                    }
+                    break;
+                }
                 case 'Enter': {
                     e.preventDefault();
                     if (element.innerText.trim() !== '') {
@@ -143,6 +154,20 @@ var Terminal = /** @class */ (function (_super) {
                 }
             }
         });
+        element.addEventListener('keyup', function (e) {
+            switch (e.key) {
+                case 'Backspace': {
+                    var content = _this.commandInputElement.innerText;
+                    _this.currentPrediction = _this.cmdPredictor.predict(content);
+                    _this.commandInputElement.setAttribute('data-prediction', _this.currentPrediction);
+                    break;
+                }
+            }
+        });
+        element.addEventListener('keypress', function (e) {
+            _this.currentPrediction = _this.cmdPredictor.predict(_this.commandInputElement.innerText + e.key);
+            _this.commandInputElement.setAttribute('data-prediction', _this.currentPrediction);
+        });
         this.commandInputElement = element;
     };
     Terminal.prototype.openInput = function (context) {
@@ -158,6 +183,7 @@ var Terminal = /** @class */ (function (_super) {
             this.inputContext.takeInput(content);
             return;
         }
+        this.currentPrediction = '';
         this.previousInputs.enter(content);
         this.previousInputs.to(this.previousInputs.len() - 1);
         var parser = new TerminalCommandParser(content, this);
@@ -183,6 +209,7 @@ var Terminal = /** @class */ (function (_super) {
         }
         commands.forEach(function (cmd) {
             _this.commands.push(cmd);
+            _this.cmdPredictor.set(_this.getCommandIdentifiers());
         });
     };
     Terminal.prototype.getCommandInputElement = function () {

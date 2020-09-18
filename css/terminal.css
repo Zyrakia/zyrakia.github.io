@@ -173,6 +173,12 @@
 	color: var(--solo-prefix-clr);
 }
 
+.command_input::after {
+	content: attr(data-prediction);
+	filter: invert(25%);
+	opacity: 0.5;
+}
+
 a {
 	color: unset;
 	animation: fadeIn 500ms;
