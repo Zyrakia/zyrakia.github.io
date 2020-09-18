@@ -6,7 +6,7 @@ class Terminal extends Renderable<HTMLSpanElement> {
 
 	private lines: TerminalLine[] = [];
 
-	private previousInput = '';
+	private previousInputs = new TraversableArray();
 
 	private inputContext: InputContext;
 
@@ -60,8 +60,8 @@ class Terminal extends Renderable<HTMLSpanElement> {
 		});
 
 		element.addEventListener('keydown', (e: KeyboardEvent) => {
-			switch (e.keyCode) {
-				case 13: {
+			switch (e.key) {
+				case 'Enter': {
 					e.preventDefault();
 					if (element.innerText.trim() !== '') {
 						this.parentElement.removeChild(this.commandInputElement);
@@ -71,8 +71,15 @@ class Terminal extends Renderable<HTMLSpanElement> {
 					break;
 				}
 
-				case 38:
-					if (this.previousInput) this.commandInputElement.innerText = this.previousInput;
+				case 'ArrowUp': {
+					this.commandInputElement.innerText = this.previousInputs.prev();
+					break;
+				}
+
+				case 'ArrowDown': {
+					this.commandInputElement.innerText = this.previousInputs.next();
+					break;
+				}
 			}
 		});
 
@@ -93,7 +100,8 @@ class Terminal extends Renderable<HTMLSpanElement> {
 			return;
 		}
 
-		this.previousInput = content;
+		this.previousInputs.enter(content);
+		this.previousInputs.to(this.previousInputs.len() - 1);
 
 		const parser = new TerminalCommandParser(content, this);
 		if (!parser.isValid()) {
