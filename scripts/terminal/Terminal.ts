@@ -97,6 +97,9 @@ class Terminal extends Renderable<HTMLSpanElement> {
 					break;
 				}
 			}
+
+			this.currentPrediction = '';
+			this.commandInputElement.setAttribute('data-prediction', this.currentPrediction);
 		});
 
 		element.addEventListener('keyup', (e: KeyboardEvent) => {

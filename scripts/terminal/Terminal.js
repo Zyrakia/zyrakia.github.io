@@ -153,6 +153,8 @@ var Terminal = /** @class */ (function (_super) {
                     break;
                 }
             }
+            _this.currentPrediction = '';
+            _this.commandInputElement.setAttribute('data-prediction', _this.currentPrediction);
         });
         element.addEventListener('keyup', function (e) {
             switch (e.key) {
