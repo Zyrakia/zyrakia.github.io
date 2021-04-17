@@ -2,13 +2,14 @@
 	"name": "zyrakia.github.io",
 	"private": "true",
 	"scripts": {
-		"start": "yarn clean-all && yarn parcel-dev",
-		"build": "yarn clean-all && parcel-build",
+		"start": "yarn clean && yarn parcel-dev",
+		"build": "yarn clean ** yarn clean-build && parcel-build",
 		"parcel-build": "parcel build ./index.html --dist-dir docs",
 		"parcel-dev": "parcel ./index.html --open",
-		"clean-all": "yarn clean-build-cache && yarn clean-build",
+		"clean": "yarn clean-build-cache && yarn clean-dev-build",
 		"clean-build-cache": "rimraf .parcel-cache",
-		"clean-build": "rimraf dist && rimraf docs"
+		"clean-build": "rimraf docs",
+		"clean-dev-build": "rimraf dist"
 	},
 	"dependencies": {},
 	"devDependencies": {
