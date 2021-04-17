@@ -1,4 +1,8 @@
-class ProjectsCommand extends TerminalCommand {
+import {Terminal} from '../terminal/Terminal';
+import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
+import {TerminalLine, LineType} from '../terminal/TerminalLine';
+
+export class ProjectsCommand extends TerminalCommand {
 	protected readonly properties: CommandProperties = {
 		identifier: 'projects',
 	};
@@ -13,15 +17,15 @@ class ProjectsCommand extends TerminalCommand {
 			new TerminalLine(
 				'<a target="_blank" href="https://www.npmjs.com/package/tmijs-commander">TMIJS Commander</a>',
 				LineType.INDENT,
-				1
-			)
+				1,
+			),
 		);
 		response.push(
 			new TerminalLine(
 				'<a target="_blank" href="https://zyrakia.github.io/HyperStatus/">HyperStatus (Abandoned, might redo someday)</a>',
 				LineType.INDENT,
-				1
-			)
+				1,
+			),
 		);
 
 		response.push(new TerminalLine('Everything else is boring...', LineType.END));

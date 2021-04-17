@@ -1,3 +1,6 @@
+import {TerminalLine, LineAnimationSettings} from '../terminal/TerminalLine';
+import {after} from './TimeoutUtils';
+
 export class Typewriter {
 	private line: TerminalLine;
 

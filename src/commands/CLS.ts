@@ -1,4 +1,7 @@
-class CLSCommand extends TerminalCommand {
+import {Terminal} from '../terminal/Terminal';
+import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
+
+export class CLSCommand extends TerminalCommand {
 	protected readonly properties: CommandProperties = {
 		identifier: 'cls',
 	};

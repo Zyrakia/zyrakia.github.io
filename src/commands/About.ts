@@ -1,4 +1,8 @@
-class AboutCommand extends TerminalCommand {
+import {Terminal} from '../terminal/Terminal';
+import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
+import {TerminalLine, LineType} from '../terminal/TerminalLine';
+
+export class AboutCommand extends TerminalCommand {
 	protected readonly properties: CommandProperties = {
 		identifier: 'about',
 	};

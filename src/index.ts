@@ -1,6 +1,19 @@
-import '../css/terminal.css';
-
-import {} from './terminal/Terminal';
+import '../styles/terminal.css';
+import {
+	AboutCommand,
+	CLSCommand,
+	ContactCommand,
+	EchoCommand,
+	ExportCommand,
+	GotoCommand,
+	HelpCommand,
+	PICommand,
+	ProjectsCommand,
+	ResetCommand,
+	TechnicalExport,
+} from './commands';
+import {Terminal} from './terminal/Terminal';
+import {TerminalStringer} from './terminal/TerminalStringer';
 
 const terminal = new Terminal();
 

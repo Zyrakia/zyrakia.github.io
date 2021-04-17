@@ -1,4 +1,8 @@
-class HelpCommand extends TerminalCommand {
+import {Terminal} from '../terminal/Terminal';
+import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
+import {TerminalLine, LineType} from '../terminal/TerminalLine';
+
+export class HelpCommand extends TerminalCommand {
 	protected readonly properties: CommandProperties = {
 		identifier: 'help',
 		usage: '(page)',
@@ -24,20 +28,20 @@ class HelpCommand extends TerminalCommand {
 		response.push(
 			new TerminalLine(`Available commands: (${pageNum}/${pages})`, LineType.START)
 				.setAnimationSpeed(5)
-				.setDelayAfter(0)
+				.setDelayAfter(0),
 		);
 
 		page.forEach((cmd) => {
-			const { identifier, usage, hidden } = cmd.getProperties();
+			const {identifier, usage, hidden} = cmd.getProperties();
 			if (!hidden) {
 				response.push(
 					new TerminalLine(
 						`'${identifier}${usage ? ` ${usage}` : ''}'`,
 						LineType.INDENT,
-						1
+						1,
 					)
 						.setAnimationSpeed(5)
-						.setDelayAfter(0)
+						.setDelayAfter(0),
 				);
 			}
 		});

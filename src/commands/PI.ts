@@ -1,4 +1,8 @@
-class PICommand extends TerminalCommand {
+import {Terminal} from '../terminal/Terminal';
+import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
+import {TerminalLine} from '../terminal/TerminalLine';
+
+export class PICommand extends TerminalCommand {
 	protected readonly properties: CommandProperties = {
 		identifier: '3.14',
 		hidden: true,

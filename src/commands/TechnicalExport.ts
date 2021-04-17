@@ -1,4 +1,9 @@
-class TechnicalExport extends TerminalCommand {
+import {Terminal} from '../terminal/Terminal';
+import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
+import {TerminalLine} from '../terminal/TerminalLine';
+import {TerminalStringer} from '../terminal/TerminalStringer';
+
+export class TechnicalExport extends TerminalCommand {
 	protected readonly properties: CommandProperties = {
 		identifier: 'techexport',
 		hidden: true,
@@ -9,7 +14,7 @@ class TechnicalExport extends TerminalCommand {
 		navigator.clipboard.writeText(saveContent);
 
 		await terminal.addLines(
-			new TerminalLine('Saved technical terminal contents to clipboard.')
+			new TerminalLine('Saved technical terminal contents to clipboard.'),
 		);
 
 		terminal.openInput();

@@ -1,4 +1,8 @@
-class EchoCommand extends TerminalCommand {
+import {Terminal} from '../terminal/Terminal';
+import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
+import {TerminalLine, LineType} from '../terminal/TerminalLine';
+
+export class EchoCommand extends TerminalCommand {
 	protected readonly properties: CommandProperties = {
 		identifier: 'echo',
 		usage: '[...contents]',

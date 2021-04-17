@@ -1,4 +1,9 @@
-class ExportCommand extends TerminalCommand {
+import {Terminal} from '../terminal/Terminal';
+import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
+import {TerminalLine} from '../terminal/TerminalLine';
+import {TerminalStringer} from '../terminal/TerminalStringer';
+
+export class ExportCommand extends TerminalCommand {
 	protected readonly properties: CommandProperties = {
 		identifier: 'export',
 	};

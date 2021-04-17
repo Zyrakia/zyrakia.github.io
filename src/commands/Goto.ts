@@ -1,4 +1,8 @@
-class GotoCommand extends TerminalCommand {
+import {Terminal} from '../terminal/Terminal';
+import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
+import {TerminalLine} from '../terminal/TerminalLine';
+
+export class GotoCommand extends TerminalCommand {
 	protected readonly properties: CommandProperties = {
 		identifier: 'goto',
 		usage: '(url)',
