@@ -1,0 +1,17 @@
+{
+	"name": "zyrakia.github.io",
+	"private": "true",
+	"scripts": {
+		"start": "yarn clean-all && yarn parcel-dev",
+		"parcel-dev": "parcel ./index.html --open",
+		"clean-all": "yarn clean-build-cache && yarn clean-build",
+		"clean-build-cache": "rimraf .parcel-cache",
+		"clean-build": "rimraf dist"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"parcel": "^2.0.0-beta.2",
+		"rimraf": "^3.0.2"
+	},
+	"license": "MIT"
+}

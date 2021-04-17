@@ -1,9 +1,12 @@
 {
 	"compilerOptions": {
-		"rootDir": "./scripts",
-		"watch": true,
-		"lib": ["ESNext", "DOM"],
-		"sourceMap": true,
-		"target": "ES5"
+		"lib": ["ES6", "DOM"],
+		"target": "ES5",
+		"module": "CommonJS",
+		"moduleResolution": "Node",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
+		"removeComments": true
 	}
 }
