@@ -3,6 +3,7 @@
 	"private": "true",
 	"scripts": {
 		"start": "yarn clean-all && yarn parcel-dev",
+		"build": "yarn clean-all && parcel-build",
 		"parcel-build": "parcel build ./index.html --dist-dir docs",
 		"parcel-dev": "parcel ./index.html --open",
 		"clean-all": "yarn clean-build-cache && yarn clean-build",
