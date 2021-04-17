@@ -3,10 +3,10 @@
 	"private": "true",
 	"scripts": {
 		"start": "yarn clean-all && yarn parcel-dev",
-		"parcel-dev": "parcel ./index.html --open",
+		"parcel-dev": "parcel ./index.html --open --dist-dir docs",
 		"clean-all": "yarn clean-build-cache && yarn clean-build",
 		"clean-build-cache": "rimraf .parcel-cache",
-		"clean-build": "rimraf dist"
+		"clean-build": "rimraf dist && rimraf docs"
 	},
 	"dependencies": {},
 	"devDependencies": {
