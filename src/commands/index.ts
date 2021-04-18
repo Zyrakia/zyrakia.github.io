@@ -1,5 +1,5 @@
 export * from './About';
-export * from './CLS';
+export * from './Clear';
 export * from './Contact';
 export * from './Echo';
 export * from './Export';

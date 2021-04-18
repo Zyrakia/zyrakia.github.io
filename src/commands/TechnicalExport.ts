@@ -1,22 +1,20 @@
-import {Terminal} from '../terminal/Terminal';
-import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
-import {TerminalLine} from '../terminal/TerminalLine';
-import {TerminalStringer} from '../terminal/TerminalStringer';
+import {Executor} from '../commander/command/Executor';
+import {Command} from '../commander/command/Command';
+import {Sender} from '../commander/command/Sender';
+import {Description} from '../commander/command/Description';
 
-export class TechnicalExport extends TerminalCommand {
-	protected readonly properties: CommandProperties = {
-		identifier: 'techexport',
-		hidden: true,
-	};
-
-	public async invoke(terminal: Terminal): Promise<void> {
-		const saveContent = TerminalStringer.toString(terminal);
-		navigator.clipboard.writeText(saveContent);
-
-		await terminal.addLines(
-			new TerminalLine('Saved technical terminal contents to clipboard.'),
-		);
-
-		terminal.openInput();
+class TechnicalExport implements Executor {
+	public async run(cmd: Command, args: string[], sender: Sender, label: string) {
+		//TODO export technical details
+		// const saveContent = TerminalStringer.toString(terminal);
+		// navigator.clipboard.writeText(saveContent);
+		// await terminal.addLines(new Line('Saved technical terminal contents to clipboard.'));
 	}
 }
+
+export const TechnicalExportCommand = Command.new(
+	'techexport',
+	Description.of('Export the technical terminal contents to your clipboard.'),
+)
+	.setHidden(true)
+	.setExecutor(new TechnicalExport());

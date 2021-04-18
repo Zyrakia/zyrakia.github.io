@@ -1,26 +1,32 @@
 import {Terminal} from '../terminal/Terminal';
-import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
-import {TerminalLine} from '../terminal/TerminalLine';
+import {Line} from '../terminal/Line';
+import {Command} from '../commander/command/Command';
+import {Executor} from '../commander/command/Executor';
+import {Description} from '../commander/command/Description';
+import {Argument} from '../commander/argument/Argument';
+import {Sender} from '../commander/command/Sender';
 
-export class SuggestCommand extends TerminalCommand {
-	protected properties: CommandProperties = {
-		identifier: 'suggest',
-	};
+class Suggest implements Executor {
+	public async run(cmd: Command, args: string[], sender: Sender, label: string) {
+		if (!(sender instanceof Terminal)) return;
 
-	public async invoke(terminal: Terminal): Promise<void> {
-		const def = new TerminalLine("Enter your suggestion, or 'cancel':");
+		const def = new Line("Enter your suggestion, or 'cancel':");
 
-		await terminal.addLines(def);
-		const response = await this.openInput(terminal);
+		await sender.sendMessage(def);
+		// const response = await this.openInput(terminal);
 
-		if (response.trim().toLowerCase() === 'cancel') {
-			await terminal.addLines(new TerminalLine('Action cancelled...'));
-			terminal.openInput();
-			return;
-		}
+		//TODO add input
 
-		await terminal.addLines(new TerminalLine('I have yet to connect my API :('));
-		console.log(response);
-		terminal.openInput();
+		// if (response.trim().toLowerCase() === 'cancel') {
+		// 	await sender.sendMessage(new Line('Action cancelled...'));
+		// 	return;
+		// }
+
+		await sender.sendMessage(new Line('I have yet to connect my API :('));
 	}
 }
+
+export const SuggestCommand = Command.new(
+	'suggest',
+	Description.of('Suggest a feature to me (Zyrakia)!'),
+).setExecutor(new Suggest());

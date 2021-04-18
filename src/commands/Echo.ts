@@ -1,23 +1,27 @@
 import {Terminal} from '../terminal/Terminal';
-import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
-import {TerminalLine, LineType} from '../terminal/TerminalLine';
+import {Line, LineType} from '../terminal/Line';
+import {Executor} from '../commander/command/Executor';
+import {Command} from '../commander/command/Command';
+import {Description} from '../commander/command/Description';
+import {Argument} from '../commander/argument/Argument';
+import {Sender} from '../commander/command/Sender';
 
-export class EchoCommand extends TerminalCommand {
-	protected readonly properties: CommandProperties = {
-		identifier: 'echo',
-		usage: '[...contents]',
-	};
+class Echo implements Executor {
+	public async run(cmd: Command, args: string[], sender: Sender, label: string) {
+		if (!(sender instanceof Terminal)) return;
 
-	public async invoke(terminal: Terminal, args: string[]): Promise<void> {
 		const echoContent = args.join(' ');
 
 		if (!echoContent) {
-			await terminal.addLines(new TerminalLine('Well at least give me something to echo...'));
-			terminal.openInput();
+			await sender.sendMessage(new Line('Well at least give me something to echo...'));
 			return;
 		}
 
-		await terminal.addLines(new TerminalLine(`${echoContent}`, LineType.RAW));
-		terminal.openInput();
+		await sender.sendMessage(new Line(`${echoContent}`, LineType.RAW));
 	}
 }
+
+export const EchoCommand = Command.new(
+	'echo',
+	Description.of('Echo anything you write to the terminal.'),
+).setExecutor(new Echo());

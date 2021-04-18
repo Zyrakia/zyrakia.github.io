@@ -1,18 +1,21 @@
 import {Terminal} from '../terminal/Terminal';
-import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
-import {TerminalLine} from '../terminal/TerminalLine';
-import {TerminalStringer} from '../terminal/TerminalStringer';
+import {Line} from '../terminal/Line';
+import {Command} from '../commander/command/Command';
+import {Description} from '../commander/command/Description';
+import {Executor} from '../commander/command/Executor';
+import {Argument} from '../commander/argument/Argument';
+import {Sender} from '../commander/command/Sender';
 
-export class ExportCommand extends TerminalCommand {
-	protected readonly properties: CommandProperties = {
-		identifier: 'export',
-	};
+class Export implements Executor {
+	public async run(cmd: Command, args: string[], sender: Sender, label: string) {
+		if (!(sender instanceof Terminal)) return;
 
-	public async invoke(terminal: Terminal): Promise<void> {
-		const saveContent = TerminalStringer.toReadableString(terminal);
-		navigator.clipboard.writeText(saveContent);
-
-		await terminal.addLines(new TerminalLine('Saved terminal contents to clipboard.'));
-		terminal.openInput();
+		sender.export();
+		await sender.sendMessage(new Line('Saved terminal contents to clipboard.'));
 	}
 }
+
+export const ExportCommand = Command.new(
+	'export',
+	Description.of('Export the terminal contents to your clipboard.'),
+).setExecutor(new Export());

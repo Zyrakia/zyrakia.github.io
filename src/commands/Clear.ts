@@ -5,17 +5,13 @@ import {Executor} from '../commander/command/Executor';
 import {Sender} from '../commander/command/Sender';
 import {Terminal} from '../terminal/Terminal';
 
-class Reset implements Executor {
+class Clear implements Executor {
 	public run(cmd: Command, args: string[], sender: Sender, label: string) {
 		if (!(sender instanceof Terminal)) return;
 		sender.clear();
-		//TODO add function to write defaults
 	}
 }
 
-export const ResetCommand = Command.new(
-	'reset',
-	Description.of('Clear the terminal and display the starting message.'),
-)
-	.setExecutor(new Reset())
-	.setHidden(true);
+export const ClearCommand = Command.new('clear', Description.of('Clear the terminal screen.'), [
+	'cls',
+]).setExecutor(new Clear());

@@ -1,29 +1,16 @@
 import {Terminal} from '../terminal/Terminal';
-import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
-import {TerminalLine} from '../terminal/TerminalLine';
+import {Executor} from '../commander/command/Executor';
+import {Argument} from '../commander/argument/Argument';
+import {Command} from '../commander/command/Command';
+import {Sender} from '../commander/command/Sender';
+import {Description} from '../commander/command/Description';
 
-export class GotoCommand extends TerminalCommand {
-	protected readonly properties: CommandProperties = {
-		identifier: 'goto',
-		usage: '(url)',
-	};
+class Goto implements Executor {
+	public async run(cmd: Command, args: string[], sender: Sender, label: string) {
+		if (!(sender instanceof Terminal)) return;
 
-	public async invoke(terminal: Terminal, args: string[]): Promise<void> {
-		let location = args[0];
-
-		if (!location) {
-			await terminal.addLines(new TerminalLine('Where would you like to go?'));
-			location = await this.openInput(terminal);
-		}
-
-		if (!location.includes('https://') || !location.includes('http://'))
-			location = 'https://' + location;
-
-		try {
-			window.location.replace(location);
-		} catch (error) {
-			await terminal.addLines(new TerminalLine('How do you expect me to send you there!?'));
-			terminal.openInput();
-		}
+		//TODO relocate to URL in first argument
 	}
 }
+
+export const GotoCommand = Command.new('goto', Description.of('Go to a specified URL.'));

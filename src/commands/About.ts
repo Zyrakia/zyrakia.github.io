@@ -1,26 +1,34 @@
 import {Terminal} from '../terminal/Terminal';
-import {TerminalCommand, CommandProperties} from '../terminal/TerminalCommand';
-import {TerminalLine, LineType} from '../terminal/TerminalLine';
+import {Line, LineType} from '../terminal/Line';
+import {Executor} from '../commander/command/Executor';
+import {Command} from '../commander/command/Command';
+import {Description} from '../commander/command/Description';
+import {Argument} from '../commander/argument/Argument';
+import {Sender} from '../commander/command/Sender';
 
-export class AboutCommand extends TerminalCommand {
-	protected readonly properties: CommandProperties = {
-		identifier: 'about',
-	};
+class About implements Executor {
+	public async run(cmd: Command, args: string[], sender: Sender, label: string) {
+		if (!(sender instanceof Terminal)) return;
 
-	public async invoke(terminal: Terminal): Promise<void> {
-		const response: TerminalLine[] = [];
+		const response: Line[] = [];
 
-		response.push(new TerminalLine('About me:', LineType.START));
+		response.push(new Line('About me:', LineType.START));
 
-		response.push(new TerminalLine('', LineType.RAW));
-		response.push(new TerminalLine('', LineType.RAW));
-		response.push(new TerminalLine('I like web development.', LineType.INDENT, 1));
-		response.push(new TerminalLine('', LineType.RAW));
-		response.push(new TerminalLine('', LineType.RAW));
+		response.push(new Line('', LineType.RAW));
+		response.push(new Line('', LineType.RAW));
+		response.push(new Line('I like web development.', LineType.INDENT, 1));
+		response.push(new Line('', LineType.RAW));
+		response.push(new Line('', LineType.RAW));
 
-		response.push(new TerminalLine("Who cares, try 'projects'.", LineType.END));
+		response.push(new Line("Who cares, try 'projects'.", LineType.END));
 
-		await terminal.addLines(...response);
-		terminal.openInput();
+		for (const line of response) {
+			await sender.sendMessage(line);
+		}
 	}
 }
+
+export const AboutCommand = Command.new(
+	'about',
+	Description.of('View a short description about myself (Zyrakia).'),
+).setExecutor(new About());
