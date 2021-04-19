@@ -9,12 +9,15 @@ class Goto implements Executor {
 	public async run(cmd: Command, args: string[], sender: Sender, label: string) {
 		if (!(sender instanceof Terminal)) return;
 
-		const url = args[0];
+		let url = args[0];
 
-		if (!url) {
+		if (!url || !url.trim()) {
 			await sender.sendMessage(Line.of('Well at least give me somewhere to go...'));
 			return;
 		}
+
+		url = url.trim();
+		url = url.includes('https://') ? url : 'https://' + url;
 
 		window.location.replace(url);
 	}
