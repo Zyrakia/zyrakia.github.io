@@ -1,16 +1,24 @@
 import {Terminal} from '../terminal/Terminal';
 import {Executor} from '../commander/command/Executor';
-import {Argument} from '../commander/argument/Argument';
 import {Command} from '../commander/command/Command';
 import {Sender} from '../commander/command/Sender';
 import {Description} from '../commander/command/Description';
+import {Line} from '../terminal/Line';
 
 class Goto implements Executor {
 	public async run(cmd: Command, args: string[], sender: Sender, label: string) {
 		if (!(sender instanceof Terminal)) return;
 
-		//TODO relocate to URL in first argument
+		const url = args[0];
+
+		if (!url) {
+			await sender.sendMessage(Line.of('Well at least give me somewhere to go...'));
+			return;
+		}
 	}
 }
 
-export const GotoCommand = Command.new('goto', Description.of('Go to a specified URL.'));
+export const GotoCommand = Command.new(
+	'goto',
+	Description.of('Go to a specified URL.'),
+).setExecutor(new Goto());

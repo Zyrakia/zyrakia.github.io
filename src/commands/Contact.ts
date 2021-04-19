@@ -17,7 +17,7 @@ class Contact implements Executor {
 				'<a target="_blank" href="https://www.twitter.com/zyrakia">Twitter: @Zyrakia</a>',
 				LineType.INDENT,
 				1,
-			),
+			).setAnimationSettings({animate: false}),
 		);
 		response.push(new Line('Email: mailzyrakia@gmail.com', LineType.INDENT, 1));
 		response.push(new Line('But why contact me?!', LineType.END));

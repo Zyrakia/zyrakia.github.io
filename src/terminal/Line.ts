@@ -4,8 +4,10 @@ export interface AnimationSettings {
 	animate?: boolean;
 	caretClass?: string;
 	speed?: number;
+	humanSpeed?: boolean;
 	delayBefore?: number;
 	delayAfter?: number;
+	renderAfter?: boolean;
 }
 
 export enum LineType {
@@ -21,8 +23,10 @@ export class Line extends Element<HTMLDivElement> {
 		animate: true,
 		caretClass: 'caret',
 		speed: 20,
+		humanSpeed: true,
 		delayBefore: 0,
 		delayAfter: 250,
+		renderAfter: true,
 	};
 
 	public constructor(

@@ -12,6 +12,7 @@ export class Commander {
 		if (!parts || parts.identifier.includes(' ')) return;
 
 		const foundCommand = this.commandRegistry.find(parts.identifier);
+
 		if (foundCommand) await foundCommand.run(parts.args, sender, parts.identifier);
 	}
 

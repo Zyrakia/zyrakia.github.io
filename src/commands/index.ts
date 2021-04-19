@@ -6,7 +6,7 @@ export * from './Export';
 export * from './Goto';
 export * from './Help';
 export * from './PI';
-export * from './Projects';
+export * from './Project';
 export * from './Reset';
 export * from './About';
 export * from './Suggest';

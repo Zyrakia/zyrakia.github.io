@@ -6,10 +6,10 @@ import {Sender} from '../commander/command/Sender';
 import {Terminal} from '../terminal/Terminal';
 
 class Reset implements Executor {
-	public run(cmd: Command, args: string[], sender: Sender, label: string) {
+	public async run(cmd: Command, args: string[], sender: Sender, label: string) {
 		if (!(sender instanceof Terminal)) return;
 		sender.clear();
-		//TODO add function to write defaults
+		await sender.sayDefaults();
 	}
 }
 

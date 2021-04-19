@@ -1,11 +1,21 @@
 import '../styles/terminal.css';
 import {Commander} from './commander/Commander';
-import {AboutCommand, ClearCommand, ContactCommand, HelpCommand, PICommand} from './commands';
 import {Terminal} from './terminal/Terminal';
 import {RenderMethod} from './utils/Element';
+import * as Commands from './commands';
 
 const commander = new Commander();
-commander.addCommands(AboutCommand, ClearCommand, ContactCommand, HelpCommand, PICommand);
+commander.addCommands(
+	Commands.AboutCommand,
+	Commands.ClearCommand,
+	Commands.ContactCommand,
+	Commands.EchoCommand,
+	Commands.GotoCommand,
+	Commands.HelpCommand,
+	Commands.PICommand,
+	Commands.ProjectCommand,
+	Commands.ResetCommand,
+);
 const terminal = new Terminal(commander);
 
 terminal.render(document.querySelector('body'), RenderMethod.PREPEND);

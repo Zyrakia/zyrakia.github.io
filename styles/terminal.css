@@ -45,6 +45,10 @@
 	background: #2e2e2e;
 }
 
+img {
+	border: 1px solid var(--solo);
+}
+
 .line {
 	margin: 5px 10px;
 	max-width: calc(100vw - 10px);
@@ -54,7 +58,7 @@
 	word-break: break-all;
 }
 
-.terminal > .line::before {
+.line::before {
 	content: var(--solo-prefix);
 	color: var(--solo-prefix-clr);
 }

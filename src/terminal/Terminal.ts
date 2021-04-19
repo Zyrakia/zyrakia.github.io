@@ -28,6 +28,10 @@ export class Terminal extends Element<HTMLDivElement> implements Sender {
 	public onElementRender() {
 		this.stdout.render(this.internalElement);
 		this.stdin.render(this.internalElement);
+		this.closeSTDIN();
+		this.sayDefaults().then(() => {
+			this.openSTDIN();
+		});
 	}
 
 	public async sendMessage(line: Line) {
@@ -50,6 +54,13 @@ export class Terminal extends Element<HTMLDivElement> implements Sender {
 
 	public clear() {
 		this.stdout.clear();
+	}
+
+	public async sayDefaults() {
+		await this.sendMessage(Line.of('Welcome to my portfolio.'));
+		await this.sendMessage(
+			Line.of(`Type 'help' and press ENTER to see a list of available commands.`),
+		);
 	}
 
 	public export() {}

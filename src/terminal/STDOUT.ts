@@ -1,7 +1,6 @@
 import {Element} from '../utils/Element';
+import {Typewriter} from '../utils/Typewriter';
 import {Line} from './Line';
-import Typewriter from 'typewriter-effect/dist/core';
-import {Options, TypewriterClass} from 'typewriter-effect';
 
 export class STDOUT extends Element<HTMLDivElement> {
 	private lines: Line[];
@@ -18,22 +17,28 @@ export class STDOUT extends Element<HTMLDivElement> {
 		const options = line.getAnimationSettings();
 
 		line.render(this.internalElement);
-		if (!options.animate) {
-			line.getElement().innerHTML = line.getContent();
-			return;
-		}
 
 		const typewriter = new Typewriter(line.getElement(), {
-			delay: options.speed,
-			cursor: '',
-		} as Options) as TypewriterClass;
+			typeDelay: options.speed,
+			human: options.humanSpeed,
+			renderAfter: options.renderAfter,
+		});
 
 		return new Promise((resolve) => {
+			let content: string;
+			if (line.getContent()) content = line.getContent();
+			else {
+				content = '&nbsp;';
+			}
+
+			typewriter.pauseFor(options.delayBefore);
+
+			if (options.animate) typewriter.typeHTML(content);
+			else typewriter.pasteHTML(content);
+
 			typewriter
-				.pauseFor(options.delayBefore)
-				.typeString(line.getContent())
 				.pauseFor(options.delayAfter)
-				.callFunction(() => resolve())
+				.execute(() => resolve())
 				.start();
 		});
 	}
