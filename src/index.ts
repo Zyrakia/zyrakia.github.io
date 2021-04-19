@@ -10,6 +10,7 @@ commander.addCommands(
 	Commands.ProjectCommand,
 	Commands.CopyrightCommand,
 	Commands.ContactCommand,
+    Commands.ReflectionCommand,
 	Commands.ClearCommand,
 	Commands.EchoCommand,
 	Commands.GotoCommand,

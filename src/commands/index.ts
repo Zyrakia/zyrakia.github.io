@@ -10,5 +10,6 @@ export * from './PI';
 export * from './Project';
 export * from './Reset';
 export * from './About';
+export * from './Reflection';
 export * from './Suggest';
 export * from './TechnicalExport';
