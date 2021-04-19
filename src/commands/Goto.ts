@@ -16,7 +16,7 @@ class Goto implements Executor {
 			return;
 		}
 
-		window.location.href = 'url';
+		window.location.replace(url);
 	}
 }
 
