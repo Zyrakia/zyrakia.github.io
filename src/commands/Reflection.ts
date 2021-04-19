@@ -114,6 +114,4 @@ class Reflection implements Executor {
 export const ReflectionCommand = Command.new(
 	'reflection',
 	Description.of('View my reflection after completing this project.'),
-)
-	.setHidden(true)
-	.setExecutor(new Reflection());
+).setExecutor(new Reflection());
