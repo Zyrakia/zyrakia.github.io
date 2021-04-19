@@ -15,6 +15,8 @@ class Goto implements Executor {
 			await sender.sendMessage(Line.of('Well at least give me somewhere to go...'));
 			return;
 		}
+
+		window.location.href = 'url';
 	}
 }
 
