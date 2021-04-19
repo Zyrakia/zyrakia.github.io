@@ -27,6 +27,7 @@ export class STDIN extends Element<HTMLSpanElement> {
 
 	protected onElementRender() {
 		this.internalElement.focus();
+		this.internalElement.scrollIntoView();
 	}
 
 	private lockFocus(this: HTMLSpanElement) {

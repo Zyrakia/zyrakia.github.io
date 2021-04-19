@@ -14,12 +14,25 @@ class Contact implements Executor {
 		response.push(new Line('My socials:', LineType.START));
 		response.push(
 			new Line(
-				'<a target="_blank" href="https://www.twitter.com/zyrakia">Twitter: @Zyrakia</a>',
+				'GitHub: <a target="_blank" href="https://www.github.com/zyrakia">@Zyrakia</a>',
 				LineType.INDENT,
 				1,
 			).setAnimationSettings({animate: false}),
 		);
-		response.push(new Line('Email: mailzyrakia@gmail.com', LineType.INDENT, 1));
+		response.push(
+			new Line(
+				'Twitter: <a target="_blank" href="https://www.twitter.com/zyrakia">@Zyrakia</a>',
+				LineType.INDENT,
+				1,
+			).setAnimationSettings({animate: false}),
+		);
+		response.push(
+			new Line(
+				'Email: <a target="_blank" href="mailto:ole.lammers@pm.me">ole.lammers@pm.me</a>',
+				LineType.INDENT,
+				1,
+			).setAnimationSettings({animate: false}),
+		);
 		response.push(new Line('But why contact me?!', LineType.END));
 
 		for (const line of response) await sender.sendMessage(line);

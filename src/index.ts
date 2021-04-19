@@ -7,13 +7,14 @@ import * as Commands from './commands';
 const commander = new Commander();
 commander.addCommands(
 	Commands.AboutCommand,
-	Commands.ClearCommand,
+	Commands.ProjectCommand,
+	Commands.CopyrightCommand,
 	Commands.ContactCommand,
+	Commands.ClearCommand,
 	Commands.EchoCommand,
 	Commands.GotoCommand,
 	Commands.HelpCommand,
 	Commands.PICommand,
-	Commands.ProjectCommand,
 	Commands.ResetCommand,
 );
 const terminal = new Terminal(commander);

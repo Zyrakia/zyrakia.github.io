@@ -1,7 +1,7 @@
 import {Sender} from '../commander/command/Sender';
 import {Commander} from '../commander/Commander';
 import {Element, RenderMethod} from '../utils/Element';
-import {Line} from './Line';
+import {Line, LineType} from './Line';
 import {STDIN} from './STDIN';
 import {STDOUT} from './STDOUT';
 
@@ -57,6 +57,14 @@ export class Terminal extends Element<HTMLDivElement> implements Sender {
 	}
 
 	public async sayDefaults() {
+		await this.sendMessage(
+			Line.of(
+				"(I know this isn't the most orthodox website, but hopefully it's acceptable, sorry!)",
+			)
+				.setAnimationSettings({animate: false})
+				.setType(LineType.RAW),
+		);
+		await this.sendMessage(Line.of('').setType(LineType.RAW));
 		await this.sendMessage(Line.of('Welcome to my portfolio.'));
 		await this.sendMessage(
 			Line.of(`Type 'help' and press ENTER to see a list of available commands.`),

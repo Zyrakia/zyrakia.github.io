@@ -121,7 +121,7 @@ class Project implements Executor {
 		const projectToDescribe = this.projects.find((project) => project.key === projectKey);
 
 		if (!projectToDescribe) {
-			await sender.sendMessage(Line.of(`'${projectToDescribe}' is not a valid project key!`));
+			await sender.sendMessage(Line.of(`'${projectKey}' is not a valid project name!`));
 			return;
 		}
 

@@ -29,13 +29,16 @@ export class Line extends Element<HTMLDivElement> {
 		renderAfter: true,
 	};
 
+	private animationSettings: AnimationSettings;
+
 	public constructor(
 		private content: string = '',
 		private type: LineType = LineType.SOLO,
 		private indentLevel: number = 0,
-		private animationSettings = Line.ANIMATION_SETTINGS,
+		animationSettings = Line.ANIMATION_SETTINGS,
 	) {
 		super();
+		this.animationSettings = Object.assign({}, Line.ANIMATION_SETTINGS, animationSettings);
 	}
 
 	protected onRequestElement(): HTMLDivElement {

@@ -1,6 +1,7 @@
 export * from './About';
 export * from './Clear';
 export * from './Contact';
+export * from './Copyright';
 export * from './Echo';
 export * from './Export';
 export * from './Goto';

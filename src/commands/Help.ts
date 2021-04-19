@@ -48,6 +48,8 @@ class Help implements Executor {
 			);
 		});
 
+		response.push(Line.of("Use 'help [page number]' to see more!").setType(LineType.END));
+
 		for (const line of response) {
 			await sender.sendMessage(line);
 		}
