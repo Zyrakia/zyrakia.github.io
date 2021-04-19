@@ -104,7 +104,7 @@ class Project implements Executor {
 					Line.of(`'${project.key}'`)
 						.setType(LineType.INDENT)
 						.setIndentLevel(1)
-						.setAnimationSettings({speed: 1}),
+						.setAnimationSettings({delayAfter: 0, speed: 1}),
 				);
 			});
 			response.push(
@@ -119,6 +119,11 @@ class Project implements Executor {
 		}
 
 		const projectToDescribe = this.projects.find((project) => project.key === projectKey);
+
+		if (!projectToDescribe) {
+			await sender.sendMessage(Line.of(`'${projectToDescribe}' is not a valid project key!`));
+			return;
+		}
 
 		const response: Line[] = [];
 
