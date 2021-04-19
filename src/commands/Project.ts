@@ -9,16 +9,76 @@ interface ProjectInfo {
 	key: string;
 	name: string;
 	description: string;
-	imageURL?: string;
+	imageURL: string;
 }
 
 class Project implements Executor {
 	private projects: ProjectInfo[] = [
 		{
 			key: 'portfolio-website',
-			name: 'This portfolio website',
+			name: 'This Portfolio Website',
 			description: 'A virtual terminal with custom command interpreter and typewriter.',
 			imageURL: 'https://i.ibb.co/WsvFFnz/image.png',
+		},
+		{
+			key: 'portfolio-brochure',
+			name: 'Portfolio Brochure',
+			description: 'A small portfolio brochure made in InDesign in the style of a terminal.',
+			imageURL: 'https://i.ibb.co/zmGhsbj/image.png',
+		},
+		{
+			key: 'spy-talk',
+			name: 'Spy Talk Skit',
+			description: 'A short scripted video shot and edited in Premiere Pro.',
+			imageURL: 'https://i.ibb.co/vdP9yV1/image.png',
+		},
+		{
+			key: 'trailer-remix',
+			name: 'Trailer Remix',
+			description: 'A trailer genre mix-up project made in Premiere Pro.',
+			imageURL: 'https://i.ibb.co/6Rtc8V4/image.png',
+		},
+		{
+			key: 'character-creation',
+			name: 'Ferb As Myself',
+			description: 'Ferb from Phineas and Ferb recreated as myself in Illustrator.',
+			imageURL: 'https://i.ibb.co/bN2sZmK/image.png',
+		},
+		{
+			key: 'animate-gif-project',
+			name: 'Animate GIF Project',
+			description: 'A terminal themed typing animation GIF created in Animate.',
+			imageURL: 'https://i.ibb.co/3pkHyqH/image.png',
+		},
+		{
+			key: 'animate-unit-project',
+			name: 'Animate Unit Project',
+			description: 'A technology themed GIF animation created in Animate.',
+			imageURL: 'https://i.ibb.co/FJ3Cyw9/image.png',
+		},
+		{
+			key: 'mini-webpage',
+			name: 'Mini Reading Website',
+			description: 'A mini website about my reading experiences created in Spark.',
+			imageURL: 'https://i.ibb.co/PhR5Y8Z/image.png',
+		},
+		{
+			key: 'album-cover',
+			name: 'In Rainbows Album Cover',
+			description: `An album cover remake based on 'In Rainbows by Radiohead'.`,
+			imageURL: 'https://i.ibb.co/hY7vHhZ/image.png',
+		},
+		{
+			key: 'logo-creation',
+			name: 'Ovie Logo',
+			description: 'A custom logo for a different project created in Illustrator.',
+			imageURL: 'https://i.ibb.co/F8CCk8c/image.png',
+		},
+		{
+			key: 'podcast-creation',
+			name: 'Tutorial Hell Podcast',
+			description: 'A six minute podcast talking about how to get out of tutorial hell.',
+			imageURL: 'https://i.ibb.co/HKMtwbb/image.png',
 		},
 	];
 
